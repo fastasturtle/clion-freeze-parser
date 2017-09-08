@@ -5,7 +5,7 @@ Automatically detect issue IDs related to a CLion freeze.
 ## Usage
 
 ```
-./clion-freeze-parser dump.txt > result.txt
+./clion-freeze-parser.py dump.txt > result.txt
 ```
 
 ### Prerequisites
