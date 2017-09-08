@@ -9,6 +9,10 @@ FRAME_SEQ_TO_TICKET = [
 
     (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
      "https://youtrack.jetbrains.com/issue/CPP-8460")
+
+    # If a typical thread dump for a freeze has several characteristic frames in EDT,
+    # add the following entry:
+    # ("frame.substring.1", "frame.substring.2", <...>), "ticket URL")
 ]
 
 KNOWN_FRAMES = set([frame for frames, _ in FRAME_SEQ_TO_TICKET for frame in frames])
