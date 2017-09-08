@@ -2,12 +2,16 @@
 import sys
 import os
 
-KNOWN_FRAMES = [
-    ("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
+FRAME_SEQ_TO_TICKET = [
+    (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/CPP-8459"),
-    ("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",
+
+    (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
      "https://youtrack.jetbrains.com/issue/CPP-8460")
 ]
+
+KNOWN_FRAMES = set([frame for frames, _ in FRAME_SEQ_TO_TICKET for frame in frames])
 
 
 def print_usage():
@@ -35,13 +39,23 @@ def extract_edt_call_stack(lines):
 def find_tickets(stack):
     decorated_lines = []
     ticket_ids = set()
+    known_frames = set()
     for l in stack:
-        for substr, id in KNOWN_FRAMES:
-            if substr in l:
-                decorated_lines.append('*' + l)
-                ticket_ids.add(id)
-            else:
-                decorated_lines.append(l)
+        known = False
+        for frame in KNOWN_FRAMES:
+            if frame in l:
+                known = True
+                known_frames.add(frame)
+        decorated_lines.append('*' if known else '' + l)
+
+    for frame_seq, ticket_id in FRAME_SEQ_TO_TICKET:
+        match = True
+        for frame in frame_seq:
+            if frame not in known_frames:
+                match = False
+                break
+        if match:
+            ticket_ids.add(ticket_id)
 
     return decorated_lines, ticket_ids
 
