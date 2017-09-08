@@ -22,5 +22,6 @@ Python 3
 ## TODO
 
 - More issue IDs (patches are welcome)
+- Configure output (i.e. don't print stack traces by default?)
 - Folder processing; `threadDump-*.txt` files grouping
 - zip archives processing
