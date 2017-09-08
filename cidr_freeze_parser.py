@@ -20,7 +20,13 @@ FRAME_SEQ_TO_TICKET = [
      "https://youtrack.jetbrains.com/issue/CPP-9373"),
 
     (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
-     "https://youtrack.jetbrains.com/issue/CPP-8460")
+     "https://youtrack.jetbrains.com/issue/CPP-8460"),
+
+    (("com.jetbrains.cidr.lang.editor.parameterInfo.OCArgumentListCallPlace.collectCallOptions",),
+     "https://youtrack.jetbrains.com/issue/CPP-9361"),
+
+    (("com.jetbrains.cidr.lang.editor.OCFunctionParameterInfoHandler.updateParameterInfo",),
+     "https://youtrack.jetbrains.com/issue/CPP-9361"),
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
@@ -63,7 +69,7 @@ def find_tickets(stack):
             if frame in l:
                 known = True
                 known_frames.add(frame)
-        decorated_lines.append('*' if known else '' + l)
+        decorated_lines.append(('*' if known else '') + l)
 
     for frame_seq, ticket_id in FRAME_SEQ_TO_TICKET:
         match = True
