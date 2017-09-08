@@ -56,9 +56,11 @@ def process_thread_dump(lines):
         "".join(decorated_lines))
 
 
-def process_file(fileName):
-    with open(fileName) as f:
-        print(process_thread_dump(f.readlines()))
+def process_file(file_name):
+    res = []
+    with open(file_name) as f:
+        res.append(process_thread_dump(f.readlines()))
+    return "\n".join(res)
 
 
 def main():
