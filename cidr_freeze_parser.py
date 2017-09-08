@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
-
 import sys
 import os
+
+KNOWN_FRAMES = [
+    ("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
+     "https://youtrack.jetbrains.com/issue/CPP-8459"),
+    ("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",
+     "https://youtrack.jetbrains.com/issue/CPP-8460")
+]
 
 
 def print_usage():
@@ -26,10 +32,28 @@ def extract_edt_call_stack(lines):
     return res
 
 
+def find_tickets(stack):
+    decorated_lines = []
+    ticket_ids = set()
+    for l in stack:
+        for substr, id in KNOWN_FRAMES:
+            if substr in l:
+                decorated_lines.append('*' + l)
+                ticket_ids.add(id)
+            else:
+                decorated_lines.append(l)
+
+    return decorated_lines, ticket_ids
+
+
 def process_thread_dump(lines):
     stack = extract_edt_call_stack(lines)
     has_cidr = any(".cidr" in l for l in lines)
-    return "CIDR related: {}\n\n".format(has_cidr) + "".join(stack)
+    decorated_lines, ticket_ids = find_tickets(stack)
+    return "CIDR?: {}, tickets: {}\n\n{}".format(
+        has_cidr,
+        ", ".join(ticket_ids),
+        "".join(decorated_lines))
 
 
 def process_file(fileName):
