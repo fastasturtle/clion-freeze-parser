@@ -11,6 +11,10 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/IDEA-177314"),
 
+    (("com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "https://youtrack.jetbrains.com/issue/CPP-10639"),
+
     (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
      "https://youtrack.jetbrains.com/issue/CPP-8460")
 
