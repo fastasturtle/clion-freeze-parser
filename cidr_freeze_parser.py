@@ -15,6 +15,10 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/CPP-10639"),
 
+    (("com.intellij.codeInsight.highlighting.HighlightUsagesHandlerFactoryBase.createHighlightUsagesHandler",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "https://youtrack.jetbrains.com/issue/CPP-9373"),
+
     (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
      "https://youtrack.jetbrains.com/issue/CPP-8460")
 
