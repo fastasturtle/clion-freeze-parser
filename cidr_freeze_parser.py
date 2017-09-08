@@ -7,6 +7,10 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/CPP-8459"),
 
+    (("com.intellij.codeInsight.highlighting.BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "https://youtrack.jetbrains.com/issue/IDEA-177314"),
+
     (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
      "https://youtrack.jetbrains.com/issue/CPP-8460")
 
@@ -35,7 +39,8 @@ def extract_edt_call_stack(lines):
                 before_ats = False
                 res.append(l)
             elif not before_ats:
-                break
+                if not l.strip():
+                    break
 
     return res
 
