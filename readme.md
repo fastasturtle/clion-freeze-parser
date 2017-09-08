@@ -25,3 +25,4 @@ Python 3
 - Configure output (i.e. don't print stack traces by default?)
 - Folder processing; `threadDump-*.txt` files grouping
 - zip archives processing
+- handle cases where EDT is waiting (e.g. on a read/write lock)
