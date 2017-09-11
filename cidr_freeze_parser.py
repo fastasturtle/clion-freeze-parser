@@ -3,6 +3,8 @@ import sys
 import os
 import glob
 
+from collections import defaultdict
+
 FRAME_SEQ_TO_TICKET = [
     (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
@@ -114,7 +116,7 @@ def process_file(file_name):
 
 
 def get_summary(infos):
-    all_tickets = set()
+    all_tickets = defaultdict(int)
     detailed = []
     unknown = []
     for info in infos:
@@ -125,11 +127,18 @@ def get_summary(infos):
             "\n" +
             ("" if info.ticket_ids else ("\n" + "".join(info.lines)))
         )
-        all_tickets.update(info.ticket_ids)
+        for t in info.ticket_ids:
+            all_tickets[t] += 1
 
-    return "All found tickets: " + ", ".join(all_tickets) + "\n" + \
-           "Unknown traces:\n" + "\n".join(unknown) + "\n\n" + \
-           "".join(detailed)
+    return "All found tickets:\n{}\nUnknown traces ({}):\n{}\n\n{}".format(
+        tickets_to_string(all_tickets),
+        len(unknown),
+        "\n".join(unknown),
+        "".join(detailed))
+
+
+def tickets_to_string(all_tickets):
+    return "\n".join("   {}: {}".format(t, u) for t, u in sorted(all_tickets.items(), key=lambda k: k[1], reverse=True))
 
 
 def process_files(pattern_or_file_or_dir):

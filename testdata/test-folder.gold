@@ -1,5 +1,7 @@
-All found tickets: https://youtrack.jetbrains.com/issue/CPP-10663, https://youtrack.jetbrains.com/issue/CPP-10639
-Unknown traces:
+All found tickets:
+   https://youtrack.jetbrains.com/issue/CPP-10663: 2
+   https://youtrack.jetbrains.com/issue/CPP-10639: 1
+Unknown traces (2):
 testdata/test-folder/no_edt.txt
 testdata/test-folder/unknown.txt
 
