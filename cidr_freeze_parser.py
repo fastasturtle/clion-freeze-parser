@@ -106,7 +106,11 @@ def process_thread_dump(file_name, lines):
 
 def process_file(file_name):
     with open(file_name) as f:
-        return process_thread_dump(file_name, f.readlines())
+        try:
+            readlines = f.readlines()
+        except (IOError, UnicodeError):
+            readlines = []  # will be reported as "UNKNOWN"
+        return process_thread_dump(file_name, readlines)
 
 
 def get_summary(infos):
