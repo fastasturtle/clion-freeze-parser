@@ -1,5 +1,5 @@
 All found tickets: https://youtrack.jetbrains.com/issue/CPP-8459
-Unknown traces: 
+Unknown traces:
 
-testdata/find_usages_lazy_block.txt:
-https://youtrack.jetbrains.com/issue/CPP-8459
+
+testdata/find_usages_lazy_block.txt: https://youtrack.jetbrains.com/issue/CPP-8459

@@ -7,7 +7,11 @@ from cidr_freeze_parser import process_files
 
 def run_tests():
     overwrite = len(sys.argv) > 1 and sys.argv[1] == "--overwrite"
-    for file_name in glob.iglob("testdata/*.txt"):
+    for f in os.listdir('testdata'):
+        if f.endswith('.gold') or f.endswith('.out'):
+            continue
+
+        file_name = 'testdata/' + f
         gold_name = file_name + ".gold"
         out_name = file_name + ".out"
         try:
@@ -21,7 +25,7 @@ def run_tests():
             if "".join(result).strip() != "".join(gold).strip():
                 with open(out_name, "w") as out_file:
                     out_file.writelines(result)
-                print(file_name + " failed")
+                print(f + " failed")
 
                 if overwrite:
                     print("Overwriting...")

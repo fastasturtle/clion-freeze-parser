@@ -1,8 +1,13 @@
-All found tickets: 
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-10663, https://youtrack.jetbrains.com/issue/CPP-10639
 Unknown traces:
-testdata/unknown.txt
+testdata/test-folder/no_edt.txt
+testdata/test-folder/unknown.txt
 
-testdata/unknown.txt: UNKNOWN
+testdata/test-folder/autoimport_is_cpp.txt: https://youtrack.jetbrains.com/issue/CPP-10663
+testdata/test-folder/autoimport_is_cpp2.txt: https://youtrack.jetbrains.com/issue/CPP-10663
+testdata/test-folder/no_edt.txt: UNKNOWN
+
+testdata/test-folder/unknown.txt: UNKNOWN
 
 	at gnu.trove.TObjectHash.equals(TObjectHash.java:303)
 	at gnu.trove.TObjectHash.index(TObjectHash.java:190)
@@ -61,3 +66,4 @@ testdata/unknown.txt: UNKNOWN
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+testdata/test-folder/write_folding_state.txt: https://youtrack.jetbrains.com/issue/CPP-10639

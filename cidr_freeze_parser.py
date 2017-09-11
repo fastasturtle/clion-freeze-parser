@@ -117,19 +117,23 @@ def get_summary(infos):
         if not info.ticket_ids:
             unknown.append(info.file_name)
         detailed.append(
-            info.file_name + ":\n" + ", ".join(info.ticket_ids) +
+            info.file_name + ": " + (", ".join(info.ticket_ids) if info.ticket_ids else "UNKNOWN") +
             "\n" +
-            "" if info.ticket_ids else ("\n" + "".join(info.lines))
+            ("" if info.ticket_ids else ("\n" + "".join(info.lines)))
         )
         all_tickets.update(info.ticket_ids)
 
     return "All found tickets: " + ", ".join(all_tickets) + "\n" + \
-           "Unknown traces: " + "\n".join(unknown) + "\n\n" + \
+           "Unknown traces:\n" + "\n".join(unknown) + "\n\n" + \
            "".join(detailed)
 
 
-def process_files(pattern):
-    return get_summary(process_file(f) for f in glob.iglob(pattern, recursive=True) if not os.path.isdir(f))
+def process_files(pattern_or_file_or_dir):
+    pattern = pattern_or_file_or_dir + "/**/*.txt" if os.path.isdir(pattern_or_file_or_dir) else pattern_or_file_or_dir
+    return get_summary(
+        process_file(f)
+        for f in glob.iglob(pattern, recursive=True)
+        if not os.path.isdir(f))
 
 
 def main():

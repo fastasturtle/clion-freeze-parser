@@ -1,4 +1,6 @@
 All found tickets: 
-Unknown traces: testdata/no_edt.txt
+Unknown traces:
+testdata/no_edt.txt
 
+testdata/no_edt.txt: UNKNOWN
 
