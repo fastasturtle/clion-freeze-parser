@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/CPP-7168
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-7168
+Unknown traces: 
+
+testdata/switch_header_source.txt: https://youtrack.jetbrains.com/issue/CPP-7168
 
 	at gnu.trove.THashIterator.nextIndex(THashIterator.java:82)
 	at gnu.trove.TIterator.hasNext(TIterator.java:57)

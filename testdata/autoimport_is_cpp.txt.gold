@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/CPP-10663
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-10663
+Unknown traces: 
+
+testdata/autoimport_is_cpp.txt: https://youtrack.jetbrains.com/issue/CPP-10663
 
 	at gnu.trove.TObjectHash.equals(TObjectHash.java:303)
 	at gnu.trove.TObjectHash.index(TObjectHash.java:190)

@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/CPP-8459
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-8459
+Unknown traces: 
+
+testdata/find_usages_lazy_block.txt: https://youtrack.jetbrains.com/issue/CPP-8459
 
 	at com.jetbrains.cidr.lang.toolchains.CidrSwitchBuilder.addAll(CidrSwitchBuilder.java:69)
 	at com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration.getCombinedCompilerFlags(CMakeConfiguration.java:117)

@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/CPP-9361
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-9361
+Unknown traces: 
+
+testdata/function_parameter_info.txt: https://youtrack.jetbrains.com/issue/CPP-9361
 
 	at com.intellij.lang.impl.PsiBuilderImpl$MyTreeStructure.getChildren(PsiBuilderImpl.java:1503)
 	at com.intellij.lang.impl.PsiBuilderImpl$MyTreeStructure.getChildren(PsiBuilderImpl.java:1409)

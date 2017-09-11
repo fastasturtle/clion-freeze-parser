@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/CPP-9361
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-9361
+Unknown traces: 
+
+testdata/function_parameter_info2.txt: https://youtrack.jetbrains.com/issue/CPP-9361
 
 	at com.jetbrains.cidr.lang.preprocessor.OCPreprocessingLexer.a(OCPreprocessingLexer.java:1060)
 	at com.jetbrains.cidr.lang.preprocessor.OCPreprocessingLexer.lookAhead(OCPreprocessingLexer.java:165)

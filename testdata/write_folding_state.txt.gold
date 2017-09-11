@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/CPP-10639
+All found tickets: https://youtrack.jetbrains.com/issue/CPP-10639
+Unknown traces: 
+
+testdata/write_folding_state.txt: https://youtrack.jetbrains.com/issue/CPP-10639
 
 	at com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache.d(FileSymbolTablesCache.java:643)
 	at com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache.forFile(FileSymbolTablesCache.java:352)

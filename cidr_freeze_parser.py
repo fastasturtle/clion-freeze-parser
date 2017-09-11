@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
+import glob
 
 FRAME_SEQ_TO_TICKET = [
     (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
@@ -12,6 +13,10 @@ FRAME_SEQ_TO_TICKET = [
      "https://youtrack.jetbrains.com/issue/IDEA-177314"),
 
     (("com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "https://youtrack.jetbrains.com/issue/CPP-10639"),
+
+    (("com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.saveFoldingState",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/CPP-10639"),
 
@@ -90,19 +95,45 @@ def find_tickets(stack):
     return decorated_lines, ticket_ids
 
 
-def process_thread_dump(lines):
+class ThreadDumpInfo:
+    def __init__(self, file_name, ticket_ids, lines):
+        self.file_name = file_name
+        self.ticket_ids = ticket_ids
+        self.lines = lines
+
+
+def process_thread_dump(file_name, lines):
     stack = extract_edt_call_stack(lines)
     decorated_lines, ticket_ids = find_tickets(stack)
-    return "tickets: {}\n\n{}".format(
-        ", ".join(ticket_ids),
-        "".join(decorated_lines))
+    return ThreadDumpInfo(file_name, ticket_ids, decorated_lines)
 
 
 def process_file(file_name):
-    res = []
     with open(file_name) as f:
-        res.append(process_thread_dump(f.readlines()))
-    return "\n".join(res)
+        return process_thread_dump(file_name, f.readlines())
+
+
+def get_summary(infos):
+    all_tickets = set()
+    detailed = []
+    unknown = []
+    for info in infos:
+        detailed.append(
+            info.file_name + ": " + ", ".join(info.ticket_ids) +
+            "\n\n" +
+            "".join(info.lines)
+        )
+        all_tickets.update(info.ticket_ids)
+        if not info.ticket_ids:
+            unknown.append(info.file_name)
+
+    return "All found tickets: " + ", ".join(all_tickets) + "\n" + \
+           "Unknown traces: " + "\n".join(unknown) + "\n\n" + \
+           "".join(detailed)
+
+
+def process_files(pattern):
+    return get_summary(process_file(f) for f in glob.iglob(pattern, recursive=True) if not os.path.isdir(f))
 
 
 def main():
@@ -110,7 +141,7 @@ def main():
         print_usage()
 
     for arg in sys.argv[1:]:
-        print(process_file(arg))
+        print(process_files(arg))
 
 
 if __name__ == '__main__':

@@ -1,4 +1,7 @@
-tickets: https://youtrack.jetbrains.com/issue/IDEA-177314
+All found tickets: https://youtrack.jetbrains.com/issue/IDEA-177314
+Unknown traces: 
+
+testdata/brace_highligh.txt: https://youtrack.jetbrains.com/issue/IDEA-177314
 
 	at com.jetbrains.cidr.lang.preprocessor.OCParsingNameScope.getKind(OCParsingNameScope.java:244)
 	at com.jetbrains.cidr.lang.preprocessor.OCParsingNameScope.a(OCParsingNameScope.java:253)
