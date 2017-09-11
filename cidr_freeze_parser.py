@@ -72,16 +72,12 @@ def extract_edt_call_stack(lines):
 
 
 def find_tickets(stack):
-    decorated_lines = []
     ticket_ids = set()
     known_frames = set()
     for l in stack:
-        known = False
         for frame in KNOWN_FRAMES:
             if frame in l:
-                known = True
                 known_frames.add(frame)
-        decorated_lines.append(('*' if known else '') + l)
 
     for frame_seq, ticket_id in FRAME_SEQ_TO_TICKET:
         match = True
@@ -92,7 +88,7 @@ def find_tickets(stack):
         if match:
             ticket_ids.add(ticket_id)
 
-    return decorated_lines, ticket_ids
+    return stack, ticket_ids
 
 
 class ThreadDumpInfo:
@@ -104,8 +100,8 @@ class ThreadDumpInfo:
 
 def process_thread_dump(file_name, lines):
     stack = extract_edt_call_stack(lines)
-    decorated_lines, ticket_ids = find_tickets(stack)
-    return ThreadDumpInfo(file_name, ticket_ids, decorated_lines)
+    lines, ticket_ids = find_tickets(stack)
+    return ThreadDumpInfo(file_name, ticket_ids, lines)
 
 
 def process_file(file_name):
@@ -118,14 +114,14 @@ def get_summary(infos):
     detailed = []
     unknown = []
     for info in infos:
-        detailed.append(
-            info.file_name + ": " + ", ".join(info.ticket_ids) +
-            "\n\n" +
-            "".join(info.lines)
-        )
-        all_tickets.update(info.ticket_ids)
         if not info.ticket_ids:
             unknown.append(info.file_name)
+        detailed.append(
+            info.file_name + ":\n" + ", ".join(info.ticket_ids) +
+            "\n" +
+            "" if info.ticket_ids else ("\n" + "".join(info.lines))
+        )
+        all_tickets.update(info.ticket_ids)
 
     return "All found tickets: " + ", ".join(all_tickets) + "\n" + \
            "Unknown traces: " + "\n".join(unknown) + "\n\n" + \
