@@ -73,6 +73,7 @@ testdata/Archive/threadDumps-freeze-20170530-123034-CL-172.2465.12/threadDump-20
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
 testdata/Archive/threadDumps-freeze-20170530-123138-CL-172.2465.12/threadDump-20170530-123138.txt: UNKNOWN
 
 	at sun.misc.Unsafe.park(Native Method)
@@ -140,6 +141,7 @@ testdata/Archive/threadDumps-freeze-20170530-123138-CL-172.2465.12/threadDump-20
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
 testdata/Archive/threadDumps-freeze-20170530-123215-CL-172.2465.12/threadDump-20170530-123215.txt: UNKNOWN
 
 	at sun.misc.Unsafe.park(Native Method)
@@ -207,6 +209,7 @@ testdata/Archive/threadDumps-freeze-20170530-123215-CL-172.2465.12/threadDump-20
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
 testdata/Archive/threadDumps-freeze-20170530-123436-CL-172.2465.12-108sec/threadDump-20170530-123436.txt: UNKNOWN
 
 	at sun.misc.Unsafe.park(Native Method)
@@ -265,4 +268,5 @@ testdata/Archive/threadDumps-freeze-20170530-123436-CL-172.2465.12-108sec/thread
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+
 testdata/Archive/threadDumps-freeze-20170530-123732-CL-172.2465.12-91sec/threadDump-20170530-123732.txt: https://youtrack.jetbrains.com/issue/CPP-9373

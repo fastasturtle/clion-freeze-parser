@@ -124,7 +124,7 @@ def get_summary(infos):
         detailed.append(
             info.file_name + ": " + (", ".join(info.ticket_ids) if info.ticket_ids else "UNKNOWN") +
             "\n" +
-            ("" if info.ticket_ids else ("\n" + "".join(info.lines)))
+            ("" if info.ticket_ids else ("\n" + "".join(info.lines) + "\n"))
         )
         for t in info.ticket_ids:
             all_tickets[t] += 1
