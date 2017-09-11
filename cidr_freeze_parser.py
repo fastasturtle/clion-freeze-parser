@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import sys
 import os
-import glob
 
 from collections import defaultdict
 
@@ -141,20 +140,31 @@ def tickets_to_string(all_tickets):
     return "\n".join("   {}: {}".format(t, u) for t, u in sorted(all_tickets.items(), key=lambda k: k[1], reverse=True))
 
 
-def process_files(pattern_or_file_or_dir):
-    pattern = pattern_or_file_or_dir + "/**/*.txt" if os.path.isdir(pattern_or_file_or_dir) else pattern_or_file_or_dir
-    return get_summary(
-        process_file(f)
-        for f in glob.iglob(pattern, recursive=True)
-        if not os.path.isdir(f))
+def collect_files(arg):
+    if os.path.isfile(arg):
+        yield arg
+    elif os.path.isdir(arg):
+        for folder_name, subfolders, filenames in os.walk(arg):
+            if filenames and 'threadDumps-freeze-20' in folder_name:
+                # assume all freezes in this folder have the same cause
+                yield folder_name + '/' + filenames[0]
+            else:
+                for file in filenames:
+                    yield folder_name + '/' + file
+    else:
+        raise ValueError("Invalid file or folder: " + str(arg))
+
+
+def parse_args_and_process_files(args):
+    files = [f for arg in args for f in collect_files(arg)]
+    return get_summary(process_file(f) for f in files)
 
 
 def main():
     if len(sys.argv) < 2:
         print_usage()
-
-    for arg in sys.argv[1:]:
-        print(process_files(arg))
+    else:
+        print(parse_args_and_process_files(sys.argv[1:]))
 
 
 if __name__ == '__main__':

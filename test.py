@@ -2,7 +2,7 @@ import glob
 import os
 import sys
 
-from cidr_freeze_parser import process_files
+from cidr_freeze_parser import parse_args_and_process_files
 
 
 def run_tests():
@@ -20,7 +20,7 @@ def run_tests():
             pass
 
         with open(gold_name) as gold_file:
-            result = process_files(file_name)
+            result = parse_args_and_process_files([file_name])
             gold = gold_file.readlines()
             if "".join(result).strip() != "".join(gold).strip():
                 with open(out_name, "w") as out_file:
