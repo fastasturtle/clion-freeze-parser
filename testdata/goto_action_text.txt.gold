@@ -1,4 +1,4 @@
-CIDR?: True, tickets: https://youtrack.jetbrains.com/issue/CPP-8460
+tickets: https://youtrack.jetbrains.com/issue/CPP-8460
 
 	at gnu.trove.TObjectHash.insertionIndex(TObjectHash.java:224)
 	at gnu.trove.THashSet.add(THashSet.java:137)

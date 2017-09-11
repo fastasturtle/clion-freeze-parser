@@ -92,10 +92,8 @@ def find_tickets(stack):
 
 def process_thread_dump(lines):
     stack = extract_edt_call_stack(lines)
-    has_cidr = any(".cidr" in l for l in lines)
     decorated_lines, ticket_ids = find_tickets(stack)
-    return "CIDR?: {}, tickets: {}\n\n{}".format(
-        has_cidr,
+    return "tickets: {}\n\n{}".format(
         ", ".join(ticket_ids),
         "".join(decorated_lines))
 

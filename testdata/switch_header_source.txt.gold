@@ -1,4 +1,4 @@
-CIDR?: True, tickets: https://youtrack.jetbrains.com/issue/CPP-7168
+tickets: https://youtrack.jetbrains.com/issue/CPP-7168
 
 	at gnu.trove.THashIterator.nextIndex(THashIterator.java:82)
 	at gnu.trove.TIterator.hasNext(TIterator.java:57)

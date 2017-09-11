@@ -15,8 +15,7 @@ Python 3
 
 ### Output
 
-- Notifies if there any `cidr`-related stack frames in the EDT stack at all
-- Reports the URLs of the found issues
+- Reports the URLs of the possibly found issues
 - Prints the EDT stack trace, with interesting frames marked with `*`
 
 ## TODO

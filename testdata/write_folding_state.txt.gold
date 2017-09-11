@@ -1,4 +1,4 @@
-CIDR?: True, tickets: https://youtrack.jetbrains.com/issue/CPP-10639
+tickets: https://youtrack.jetbrains.com/issue/CPP-10639
 
 	at com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache.d(FileSymbolTablesCache.java:643)
 	at com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache.forFile(FileSymbolTablesCache.java:352)

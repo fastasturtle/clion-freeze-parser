@@ -1,4 +1,4 @@
-CIDR?: True, tickets: https://youtrack.jetbrains.com/issue/CPP-9373
+tickets: https://youtrack.jetbrains.com/issue/CPP-9373
 
 	at java.lang.Object.hashCode(Native Method)
 	at gnu.trove.TObjectHash.computeHashCode(TObjectHash.java:289)

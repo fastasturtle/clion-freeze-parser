@@ -1,4 +1,4 @@
-CIDR?: True, tickets: https://youtrack.jetbrains.com/issue/IDEA-177314
+tickets: https://youtrack.jetbrains.com/issue/IDEA-177314
 
 	at com.jetbrains.cidr.lang.preprocessor.OCParsingNameScope.getKind(OCParsingNameScope.java:244)
 	at com.jetbrains.cidr.lang.preprocessor.OCParsingNameScope.a(OCParsingNameScope.java:253)

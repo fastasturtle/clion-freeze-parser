@@ -1,4 +1,4 @@
-CIDR?: True, tickets: https://youtrack.jetbrains.com/issue/CPP-8459
+tickets: https://youtrack.jetbrains.com/issue/CPP-8459
 
 	at com.jetbrains.cidr.lang.toolchains.CidrSwitchBuilder.addAll(CidrSwitchBuilder.java:69)
 	at com.jetbrains.cidr.cpp.cmake.model.CMakeConfiguration.getCombinedCompilerFlags(CMakeConfiguration.java:117)
