@@ -41,6 +41,10 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.symbols.cpp.OCStructSymbol.getKindUppercase"),
      "https://youtrack.jetbrains.com/issue/CPP-10663"),
 
+    (("com.jetbrains.cidr.projectView.CidrFilesViewHelper$2.customizeCellRenderer",
+      "com.jetbrains.cidr.lang.search.scopes.OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"),
+     "https://youtrack.jetbrains.com/issue/CPP-10691"),
+
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
     # ("frame.substring.1", "frame.substring.2", <...>), "ticket URL")
