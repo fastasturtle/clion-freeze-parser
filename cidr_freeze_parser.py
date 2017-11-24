@@ -11,6 +11,9 @@ FRAME_SEQ_TO_TICKET = [
     (("com.intellij.usages.UsageInfo2UsageAdapter.isValid",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
+    (("com.intellij.usages.impl.UsageViewImpl.checkNodeValidity",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
 
     (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
@@ -74,6 +77,9 @@ FRAME_SEQ_TO_TICKET = [
     (("com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureProcessor.runSynchronously",
       "com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureUsageProcessor.findConflicts"),
      "Change signature: find conflicts"),
+
+    (("com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureProcessor.preprocessUsages",),
+     "Change signature: preprocessUsages"),
 
     (("com.intellij.ide.actions.SearchEverywhereAction",
       "com.jetbrains.cidr.lang.symbols.OCSymbolBase.canNavigate",
@@ -153,7 +159,32 @@ FRAME_SEQ_TO_TICKET = [
      "Google test run configuration editor"),
 
     (("com.jetbrains.cidr.lang.symbols.cpp.OCSymbolWithQualifiedName.getLocationString",),
-     "getLocationString() (https://youtrack.jetbrains.com/issue/CPP-10102)")
+     "getLocationString() (https://youtrack.jetbrains.com/issue/CPP-10102)"),
+
+    (("com.intellij.util.ProfilingUtil",),
+     "reporting activity"),
+    (("com.intellij.ide.actions.CollectZippedLogsAction",),
+     "reporting activity"),
+
+    (("com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache$OCCodeBlockModificationListener.treeChanged",
+      "com.intellij.psi.impl.source.tree.LazyParseableElement.ensureParsed"),
+     "lazy reparsing (in processASTNodeForMacros?)"),
+
+    (("OCTypedHandlerDelegate.charTyped",
+      "PsiDocumentManagerBase.commitDocument"),
+     "lazy reparsing (in processASTNodeForMacros?)"),
+
+    (("TextEditorPsiDataProvider.getData",
+      "TargetElementUtil.findTargetElement"),
+     "getData(PSI_ELEMENT)"),
+
+    (("com.intellij.ide.actions.NextOccurenceAction.go",
+      "com.intellij.psi.impl.source.tree.LazyParseableElement.ensureParsed"),
+     "lazy reparsing (next occurence)"),
+
+    (("com.intellij.openapi.editor.impl.EditorGutterComponentImpl",
+      "com.jetbrains.cidr.lang.navigation.OCGotoAction.navigate"),
+     "gutter -> goto")
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
@@ -246,7 +277,7 @@ def get_summary(infos):
     return "All found tickets:\n{}\nUnknown traces ({}):\n{}\n\n{}".format(
         tickets_to_string(all_tickets),
         len(unknown),
-        "\n".join([]),
+        "\n".join(unknown),
         "".join(detailed))
 
 
