@@ -45,6 +45,81 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.search.scopes.OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"),
      "https://youtrack.jetbrains.com/issue/CPP-10691"),
 
+    (("com.jetbrains.cidr.lang.symbols.cpp.OCSymbolWithQualifiedName.processSameSymbols",
+      "com.jetbrains.cidr.lang.refactoring.move.ui.OCAbstractMoveDialog.setMembersChecked"),
+     "OCAbstractMoveDialog.setMembersChecked -> processSameSymbols()"),
+
+    (("sun.misc.Unsafe.park(Native Method)",),
+     "unknown (waiting)"),
+
+    (("com.intellij.openapi.progress.util.AbstractProgressIndicatorExBase.checkCanceled(AbstractProgressIndicatorExBase.java:102)",),
+     "unknown (progress indicator)"),
+
+    (("com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureProcessor.runSynchronously",
+      "com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureUsageProcessor.findConflicts"),
+     "Change signature: find conflicts"),
+
+    (("com.jetbrains.cidr.lang.refactoring.move.handlers.OCMoveTopLevelRefactoringHandler.showDialog",
+      "com.jetbrains.cidr.lang.refactoring.move.OCDependentMembersCollector.collect"),
+     "Move top level: collect dependent members"),
+
+    (("com.intellij.ide.actions.SearchEverywhereAction",
+      "com.jetbrains.cidr.lang.symbols.OCSymbolBase.canNavigate",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "Search everywhere -> canNavigate -> reparsing"),
+
+    (("com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureUsageProcessor.processUsage",
+      "com.intellij.refactoring.changeSignature.ChangeSignatureProcessorBase.doChangeSignature",
+      "com.intellij.openapi.progress.util.PotemkinProgress.runInSwingThread"),
+     "OCChangeSignature.doChange (but under progress)?"),
+
+    (("sun.java2d.opengl.OGLRenderQueue$QueueFlusher.flushNow",
+      "java.lang.Object.wait"),
+     "OpenGL wait"),
+
+    (("com.intellij.history.integration.IdeaGateway.areContentChangesVersioned",
+      "com.intellij.history.integration.LocalHistoryEventDispatcher."),
+     "local history: areContentChangesVersioned"),
+
+    (("com.intellij.ide.util.treeView.AbstractTreeStructureBase.getChildElements",
+      "com.jetbrains.cidr.lang.OCHeaderFileTypeDetector.detect"),
+     "Project view: file type detector"),
+
+    (("com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache$OCCodeBlockModificationListener.treeChanged",
+      "com.intellij.openapi.fileEditor.impl.LoadTextUtil.loadText"),
+     "File symbol cache: load text"),
+
+    (("com.intellij.execution.filters.FileHyperlinkInfoBase.navigate",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "File hyper links: reparse"),
+
+    (("com.intellij.find.actions.FindInPathAction.actionPerformed",
+      "com.intellij.find.impl.FindInProjectUtil.setDirectoryName",
+      "com.jetbrains.cidr.lang.symbols.OCSymbolBase.locateDefinition",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "Find in path: reparse"),
+
+    (("com.jetbrains.cidr.lang.formatting.OCAutoFormatTypedHandler.execute",
+      "com.intellij.psi.util.PsiUtilBase.getLanguageInEditor",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "Auto format typed handler: get language and reparse"),
+
+    (("com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache$3.after",
+      "com.intellij.util.indexing.FileBasedIndexImpl$ChangedFilesCollector.ensureUpToDateAsync"),
+     "File symbols cache: ensure up-to-date async"),
+
+    (("com.jetbrains.cidr.generate.actions.OCBaseGenerateTestAction.update",
+      "com.jetbrains.cidr.generate.actions.OCBaseGenerateTestAction.isValidForFile"),
+     "Generate test: is valid for"),
+
+    (("com.jetbrains.cidr.lang.refactoring.inline.OCInlineActionHandlerBase.inlineElement",
+      "com.jetbrains.cidr.lang.refactoring.inline.OCInlineActionHandlerBase.findUsages"),
+     "Inline element: findUsages"),
+
+    (("com.jetbrains.cidr.lang.refactoring.OCExtractMethodHandler.invoke",
+      "com.jetbrains.cidr.lang.refactoring.OCExtractMethodProcessor.invoke"),
+     "Extract method"),
+
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
     # ("frame.substring.1", "frame.substring.2", <...>), "ticket URL")
