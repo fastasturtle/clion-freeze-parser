@@ -7,26 +7,46 @@ from collections import defaultdict
 FRAME_SEQ_TO_TICKET = [
     (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
+    (("com.intellij.usages.UsageInfo2UsageAdapter.isValid",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
+
+    (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/CPP-8459"),
 
     (("com.intellij.codeInsight.highlighting.BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
-     "https://youtrack.jetbrains.com/issue/IDEA-177314"),
+     "fixed https://youtrack.jetbrains.com/issue/IDEA-177314"),
+
+    (("com.intellij.codeInsight.highlighting.BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
+      "com.jetbrains.cidr.lang.parser.OCReparseablePsiElementType.doParseContents"),
+     "fixed https://youtrack.jetbrains.com/issue/IDEA-177314"),
+
+    (("com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState",
+      "com.jetbrains.cidr.lang.parser.OCReparseablePsiElementType.doParseContents"),
+     "folding+lazy block https://youtrack.jetbrains.com/issue/CPP-10639"),
 
     (("com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
-     "https://youtrack.jetbrains.com/issue/CPP-10639"),
+     "fixed? https://youtrack.jetbrains.com/issue/CPP-10639"),
 
     (("com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.saveFoldingState",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
-     "https://youtrack.jetbrains.com/issue/CPP-10639"),
+     "fixed? https://youtrack.jetbrains.com/issue/CPP-10639"),
+
+    (("com.intellij.configurationStore.ComponentStoreImpl.save",
+      "com.intellij.openapi.fileEditor.impl.text.TextEditorState.getFoldingState",
+      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
+     "fixed? https://youtrack.jetbrains.com/issue/CPP-10639"),
 
     (("com.intellij.codeInsight.highlighting.HighlightUsagesHandlerFactoryBase.createHighlightUsagesHandler",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "https://youtrack.jetbrains.com/issue/CPP-9373"),
 
     (("com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText",),
-     "https://youtrack.jetbrains.com/issue/CPP-8460"),
+     "fixed https://youtrack.jetbrains.com/issue/CPP-8460"),
 
     (("com.jetbrains.cidr.lang.editor.parameterInfo.OCArgumentListCallPlace.collectCallOptions",),
      "https://youtrack.jetbrains.com/issue/CPP-9361"),
@@ -45,10 +65,6 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.search.scopes.OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"),
      "https://youtrack.jetbrains.com/issue/CPP-10691"),
 
-    (("com.jetbrains.cidr.lang.symbols.cpp.OCSymbolWithQualifiedName.processSameSymbols",
-      "com.jetbrains.cidr.lang.refactoring.move.ui.OCAbstractMoveDialog.setMembersChecked"),
-     "OCAbstractMoveDialog.setMembersChecked -> processSameSymbols()"),
-
     (("sun.misc.Unsafe.park(Native Method)",),
      "unknown (waiting)"),
 
@@ -59,19 +75,13 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureUsageProcessor.findConflicts"),
      "Change signature: find conflicts"),
 
-    (("com.jetbrains.cidr.lang.refactoring.move.handlers.OCMoveTopLevelRefactoringHandler.showDialog",
-      "com.jetbrains.cidr.lang.refactoring.move.OCDependentMembersCollector.collect"),
-     "Move top level: collect dependent members"),
-
     (("com.intellij.ide.actions.SearchEverywhereAction",
       "com.jetbrains.cidr.lang.symbols.OCSymbolBase.canNavigate",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "Search everywhere -> canNavigate -> reparsing"),
 
-    (("com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureUsageProcessor.processUsage",
-      "com.intellij.refactoring.changeSignature.ChangeSignatureProcessorBase.doChangeSignature",
-      "com.intellij.openapi.progress.util.PotemkinProgress.runInSwingThread"),
-     "OCChangeSignature.doChange (but under progress)?"),
+    (("com.intellij.openapi.progress.util.PotemkinProgress.runInSwingThread",),
+     "Potemkin progress not working"),
 
     (("sun.java2d.opengl.OGLRenderQueue$QueueFlusher.flushNow",
       "java.lang.Object.wait"),
@@ -119,6 +129,31 @@ FRAME_SEQ_TO_TICKET = [
     (("com.jetbrains.cidr.lang.refactoring.OCExtractMethodHandler.invoke",
       "com.jetbrains.cidr.lang.refactoring.OCExtractMethodProcessor.invoke"),
      "Extract method"),
+
+    (("com.jetbrains.cidr.lang.symbols.cpp.OCSymbolWithQualifiedName.processSameSymbols",
+      "com.jetbrains.cidr.lang.refactoring.move.ui.OCAbstractMoveDialog.setMembersChecked"),
+     "Move"),
+
+    (("com.jetbrains.cidr.lang.refactoring.move.handlers.OCMoveTopLevelRefactoringHandler.showDialog",
+      "com.jetbrains.cidr.lang.refactoring.move.OCDependentMembersCollector.collect"),
+     "Move"),
+
+    (("com.jetbrains.cidr.lang.refactoring.move.OCMoveProcessor",),
+     "Move"),
+
+    (("com.intellij.codeInsight.editorActions.EnterHandler",),
+     "Enter handler"),
+
+    (("com.intellij.openapi.actionSystem.impl.Utils.fillMenu",
+      "com.jetbrains.cidr.execution.testing.CidrTestRunConfigurationProducer.isConfigurationFromContext"),
+     "Context configuration click"),
+
+    (("com.jetbrains.cidr.execution.CidrRunConfigurationSettingsEditor$MyComboBox.fireSelectedItemChanged",
+      "com.jetbrains.cidr.execution.testing.google.CidrGoogleTestRunConfigurationData"),
+     "Google test run configuration editor"),
+
+    (("com.jetbrains.cidr.lang.symbols.cpp.OCSymbolWithQualifiedName.getLocationString",),
+     "getLocationString() (https://youtrack.jetbrains.com/issue/CPP-10102)")
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
@@ -211,7 +246,7 @@ def get_summary(infos):
     return "All found tickets:\n{}\nUnknown traces ({}):\n{}\n\n{}".format(
         tickets_to_string(all_tickets),
         len(unknown),
-        "\n".join(unknown),
+        "\n".join([]),
         "".join(detailed))
 
 
