@@ -15,10 +15,6 @@ FRAME_SEQ_TO_TICKET = [
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
 
-    (("com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
-      "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
-     "https://youtrack.jetbrains.com/issue/CPP-8459"),
-
     (("com.intellij.codeInsight.highlighting.BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
       "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"),
      "fixed https://youtrack.jetbrains.com/issue/IDEA-177314"),
@@ -71,7 +67,8 @@ FRAME_SEQ_TO_TICKET = [
     (("sun.misc.Unsafe.park(Native Method)",),
      "unknown (waiting)"),
 
-    (("com.intellij.openapi.progress.util.AbstractProgressIndicatorExBase.checkCanceled(AbstractProgressIndicatorExBase.java:102)",),
+    ((
+     "com.intellij.openapi.progress.util.AbstractProgressIndicatorExBase.checkCanceled(AbstractProgressIndicatorExBase.java:102)",),
      "unknown (progress indicator)"),
 
     (("com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureProcessor.runSynchronously",
@@ -172,7 +169,7 @@ FRAME_SEQ_TO_TICKET = [
 
     (("OCTypedHandlerDelegate.charTyped",
       "PsiDocumentManagerBase.commitDocument"),
-     "lazy reparsing (in processASTNodeForMacros?)"),
+     "commit on typing https://youtrack.jetbrains.com/issue/CPP-6152"),
 
     (("TextEditorPsiDataProvider.getData",
       "TargetElementUtil.findTargetElement"),
@@ -184,7 +181,10 @@ FRAME_SEQ_TO_TICKET = [
 
     (("com.intellij.openapi.editor.impl.EditorGutterComponentImpl",
       "com.jetbrains.cidr.lang.navigation.OCGotoAction.navigate"),
-     "gutter -> goto")
+     "gutter -> goto"),
+
+    (("com.jetbrains.cidr.execution.debugger.breakpoints.CidrWatchpointHandler.cleanup",),
+     "WA in stop breakpoint (https://youtrack.jetbrains.com/issue/CPP-11330)")
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:

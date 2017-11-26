@@ -1,6 +1,6 @@
 All found tickets:
    https://youtrack.jetbrains.com/issue/CPP-10663: 2
-   https://youtrack.jetbrains.com/issue/CPP-10639: 1
+   fixed? https://youtrack.jetbrains.com/issue/CPP-10639: 1
 Unknown traces (2):
 testdata/test-folder/no_edt.txt
 testdata/test-folder/unknown.txt
@@ -70,4 +70,4 @@ testdata/test-folder/unknown.txt: UNKNOWN
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 
-testdata/test-folder/write_folding_state.txt: https://youtrack.jetbrains.com/issue/CPP-10639
+testdata/test-folder/write_folding_state.txt: fixed? https://youtrack.jetbrains.com/issue/CPP-10639

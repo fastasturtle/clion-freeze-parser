@@ -1,4 +1,3 @@
-import glob
 import os
 import sys
 
@@ -30,8 +29,6 @@ def run_tests():
                 if overwrite:
                     print("Overwriting...")
                     os.rename(out_name, gold_name)
-
-
 
 
 if __name__ == '__main__':
