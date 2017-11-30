@@ -204,7 +204,7 @@ FRAME_SEQ_TO_TICKET = [
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
-    # ("frame.substring.1", "frame.substring.2", <...>), "ticket URL")
+    # NormalRule(["frame.substring.1", "frame.substring.2", <...>], "ticket URL and description")
 ]
 
 
