@@ -223,22 +223,11 @@ def extract_edt_call_stack(lines):
 
 def match_stack(stack):
     messages = set()
-    known_frames = set()
-    for l in stack:
-        for frame in KNOWN_FRAMES:
-            if frame in l:
-                known_frames.add(frame)
-
     for rule in FRAME_SEQ_TO_TICKET:
-        match = True
-        for frame in rule.frame_seq:
-            if frame not in known_frames:
-                match = False
-                break
-        if match:
+        if rule.is_matched(stack):
             messages.add(rule.message)
 
-    return stack, messages
+    return messages
 
 
 class ThreadDumpInfo:
@@ -250,8 +239,8 @@ class ThreadDumpInfo:
 
 def process_thread_dump(file_name, lines):
     stack = extract_edt_call_stack(lines)
-    lines, messages = match_stack(stack)
-    return ThreadDumpInfo(file_name, messages, lines)
+    messages = match_stack(stack)
+    return ThreadDumpInfo(file_name, messages, stack)
 
 
 def process_file(file_name):
