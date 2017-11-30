@@ -167,7 +167,7 @@ FRAME_SEQ_TO_TICKET = [
 
     NormalRule(
         ["FileSymbolTablesCache$OCCodeBlockModificationListener.treeChanged",
-         "com.intellij.psi.impl.source.tree.LazyParseableElement.ensureParsed"],
+         "LazyParseableElement.ensureParsed"],
         "lazy reparsing (in processASTNodeForMacros?)"),
 
     NormalRule(["OCTypedHandlerDelegate.charTyped",
@@ -179,7 +179,7 @@ FRAME_SEQ_TO_TICKET = [
                "getData(PSI_ELEMENT)"),
 
     NormalRule(["com.intellij.ide.actions.NextOccurenceAction.go",
-                "com.intellij.psi.impl.source.tree.LazyParseableElement.ensureParsed"],
+                "LazyParseableElement.ensureParsed"],
                "lazy reparsing (next occurence)"),
 
     NormalRule(["com.intellij.openapi.editor.impl.EditorGutterComponentImpl",
@@ -187,7 +187,20 @@ FRAME_SEQ_TO_TICKET = [
                "gutter -> goto"),
 
     NormalRule(["com.jetbrains.cidr.execution.debugger.breakpoints.CidrWatchpointHandler.cleanup"],
-               "WA in stop breakpoint (https://youtrack.jetbrains.com/issue/CPP-11330)")
+               "WA in stop breakpoint (https://youtrack.jetbrains.com/issue/CPP-11330)"),
+
+    NormalRule(["com.intellij.injected.editor.DocumentWindowImpl.isValid",
+                "com.intellij.psi.impl.source.tree.injected.ShredImpl.isValid",
+                "LazyParseableElement.ensureParsed"],
+               "DocumentWindowImpl.isValid -> reparse"),
+
+    NormalRule(["MyAutoScrollFromSourceHandler",
+                "SelectInTargetPsiWrapper.selectIn",
+                "LazyParseableElement.ensureParsed"],
+               "Autoscroll to source -> reparse"),
+
+    NormalRule(["sun.java2d.pipe.DrawImage.blitSurfaceData"],
+               "Drawing something"),
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
