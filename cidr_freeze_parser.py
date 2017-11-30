@@ -146,6 +146,9 @@ FRAME_SEQ_TO_TICKET = [
     NormalRule(["com.jetbrains.cidr.lang.refactoring.move.OCMoveProcessor"],
                "Move"),
 
+    NormalRule(["OCMoveRefactoringHandler.showDialog"],
+               "Move"),
+
     NormalRule(["com.intellij.codeInsight.editorActions.EnterHandler"],
                "Enter handler"),
 
@@ -201,6 +204,36 @@ FRAME_SEQ_TO_TICKET = [
 
     NormalRule(["sun.java2d.pipe.DrawImage.blitSurfaceData"],
                "Drawing something"),
+
+    NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition", "OCSplitFunctionIntentionAction.invoke"],
+               "Split function (https://youtrack.jetbrains.com/issue/CPP-11254)"),
+
+    NormalRule(["OCGenerateUtil.applyReplacements", "OCImportSymbolFix.fixAllSymbolsRecursively"],
+               "Generate definition: import fix"),
+
+    NormalRule(["OCRenameProcessor.prepareRenaming"],
+               "Rename"),
+
+    NormalRule(["OCInplaceRenameHandler.doRename"],
+               "Rename"),
+
+    NormalRule(["OCCreateNewDefinitionIntentionAction.getText"],
+               "OCCreateNewDefinitionIntentionAction.getText"),
+
+    NormalRule(["OCCCppGenerateHandlerBase.invoke"],
+               "CPP generate action"),
+
+    NormalRule(["GotoDeclarationAction.update", "LazyParseableElement.ensureParsed"],
+               "Goto declaration -> reparse"),
+
+    NormalRule(["SelectWordHandler.doExecute", "LazyParseableElement.ensureParsed"],
+               "Select word/expand selection -> reparse"),
+
+    NormalRule(["CodeFoldingManagerImpl$1.mouseMoved", "LazyParseableElement.ensureParsed"],
+               "Folding + mouse moved -> reparse"),
+
+    NormalRule(["TextEditorPsiDataProvider.getData", "LazyParseableElement.ensureParsed"],
+               "TextEditorPsiDataProvider -> reparse"),
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
@@ -300,6 +333,9 @@ def collect_files(arg):
         yield arg
     elif os.path.isdir(arg):
         for folder_name, subfolders, filenames in os.walk(arg):
+            if ".git" in folder_name:
+                continue
+
             if filenames and 'threadDumps-freeze-20' in folder_name:
                 # assume all freezes in this folder have the same cause
                 yield folder_name + '/' + filenames[0]
