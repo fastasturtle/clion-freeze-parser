@@ -1,15 +1,13 @@
 All found tickets:
    https://youtrack.jetbrains.com/issue/CPP-10663: 2
    fixed? https://youtrack.jetbrains.com/issue/CPP-10639: 1
-Unknown traces (2):
-testdata/test-folder/no_edt.txt
+   No EDT found: 1
+Unknown traces (1):
 testdata/test-folder/unknown.txt
 
 testdata/test-folder/autoimport_is_cpp.txt: https://youtrack.jetbrains.com/issue/CPP-10663
 testdata/test-folder/autoimport_is_cpp2.txt: https://youtrack.jetbrains.com/issue/CPP-10663
-testdata/test-folder/no_edt.txt: UNKNOWN
-
-
+testdata/test-folder/no_edt.txt: No EDT found
 testdata/test-folder/unknown.txt: UNKNOWN
 
 	at gnu.trove.TObjectHash.equals(TObjectHash.java:303)

@@ -1,6 +1,6 @@
 All found tickets:
-   waiting for write lock: 1
+   Waiting for write lock: 1
 Unknown traces (0):
 
 
-testdata/waiting_for_write_lock.txt: waiting for write lock
+testdata/waiting_for_write_lock.txt: Waiting for write lock

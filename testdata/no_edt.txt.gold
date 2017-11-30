@@ -1,7 +1,6 @@
 All found tickets:
+   No EDT found: 1
+Unknown traces (0):
 
-Unknown traces (1):
-testdata/no_edt.txt
 
-testdata/no_edt.txt: UNKNOWN
-
+testdata/no_edt.txt: No EDT found

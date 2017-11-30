@@ -6,11 +6,9 @@ from collections import defaultdict
 from typing import List
 
 from dump_file import parse_dump_file
-from rules import NormalRule, EdtWaitingRule
+from rules import NormalRule, process_custom
 
 FRAME_SEQ_TO_TICKET = [
-    EdtWaitingRule("waiting for write lock"),
-
     NormalRule(["com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
                 "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
                "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
@@ -196,6 +194,7 @@ FRAME_SEQ_TO_TICKET = [
     # ("frame.substring.1", "frame.substring.2", <...>), "ticket URL")
 ]
 
+
 def print_usage():
     print("Usage: {} [thread dumps file]".format(os.path.basename(__file__)))
 
@@ -220,13 +219,18 @@ def extract_edt_call_stack(lines):
 
 
 def match_stack(stack):
-    messages = set()
     if stack is not None:
+        custom = process_custom(stack)
+        if custom is not None:
+            return {custom}
+        messages = set()
         for rule in FRAME_SEQ_TO_TICKET:
-            if rule.is_matched(stack):
-                messages.add(rule.message)
-
-    return messages
+            message = rule.is_matched(stack)
+            if message:
+                messages.add(message)
+        return messages
+    else:
+        return set()
 
 
 class ThreadDumpInfo:
@@ -275,7 +279,7 @@ def get_summary(infos):
 
 
 def tickets_to_string(all_tickets):
-    return "\n".join("   {}: {}".format(t, u) for t, u in sorted(all_tickets.items(), key=lambda k: k[1], reverse=True))
+    return "\n".join("   {}: {}".format(t, u) for t, u in sorted(all_tickets.items(), key=lambda k: (k[1], k[0]), reverse=True))
 
 
 def collect_files(arg):
