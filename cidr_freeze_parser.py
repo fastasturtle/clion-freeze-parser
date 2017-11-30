@@ -8,70 +8,58 @@ from typing import List
 from dump_file import parse_dump_file
 from rules import NormalRule, process_custom
 
+ENSURE_PARSED = "LazyParseableElement.getFirstChildNode"
+
 FRAME_SEQ_TO_TICKET = [
-    NormalRule(["com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
-    NormalRule(["com.intellij.usages.UsageInfo2UsageAdapter.isValid",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
-    NormalRule(["com.intellij.usages.impl.UsageViewImpl.checkNodeValidity",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "chameleon in findUsages view https://youtrack.jetbrains.com/issue/CPP-8459"),
+    NormalRule(["com.intellij.find.findUsages.PsiElement2UsageTargetAdapter.isValid", ENSURE_PARSED],
+               "usages view https://youtrack.jetbrains.com/issue/CPP-8459"),
+    NormalRule(["com.intellij.usages.UsageInfo2UsageAdapter.isValid", ENSURE_PARSED],
+               "usages view https://youtrack.jetbrains.com/issue/CPP-8459"),
+    NormalRule(["com.intellij.usages.impl.UsageViewImpl.checkNodeValidity", ENSURE_PARSED],
+               "usages view https://youtrack.jetbrains.com/issue/CPP-8459"),
 
     NormalRule(
         ["com.intellij.codeInsight.highlighting.BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
-         "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-        "fixed https://youtrack.jetbrains.com/issue/IDEA-177314"),
+         ENSURE_PARSED],
+        "brace matcher (https://youtrack.jetbrains.com/issue/IDEA-177314)"),
 
     NormalRule(
         ["com.intellij.codeInsight.highlighting.BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
-         "com.jetbrains.cidr.lang.parser.OCReparseablePsiElementType.doParseContents"],
-        "fixed https://youtrack.jetbrains.com/issue/IDEA-177314"),
+         ENSURE_PARSED],
+        "brace matcher (https://youtrack.jetbrains.com/issue/IDEA-177314)"),
 
-    NormalRule(["com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState",
-                "com.jetbrains.cidr.lang.parser.OCReparseablePsiElementType.doParseContents"],
-               "folding+lazy block https://youtrack.jetbrains.com/issue/CPP-10639"),
-
-    NormalRule(["com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "fixed? https://youtrack.jetbrains.com/issue/CPP-10639"),
-
-    NormalRule(["com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.saveFoldingState",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "fixed? https://youtrack.jetbrains.com/issue/CPP-10639"),
-
+    NormalRule(["com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.writeFoldingState", ENSURE_PARSED],
+               "Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639)"),
+    NormalRule(["com.intellij.codeInsight.folding.impl.CodeFoldingManagerImpl.saveFoldingState", ENSURE_PARSED],
+               "Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639)"),
     NormalRule(["com.intellij.configurationStore.ComponentStoreImpl.save",
-                "com.intellij.openapi.fileEditor.impl.text.TextEditorState.getFoldingState",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "fixed? https://youtrack.jetbrains.com/issue/CPP-10639"),
+                "TextEditorState.getFoldingState",
+                ENSURE_PARSED],
+               "Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639)"),
 
     NormalRule(["com.intellij.codeInsight.highlighting.HighlightUsagesHandlerFactoryBase.createHighlightUsagesHandler",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
-               "https://youtrack.jetbrains.com/issue/CPP-9373"),
+                ENSURE_PARSED],
+               "create IdentifierHighlighterPass pass (https://youtrack.jetbrains.com/issue/CPP-9373)"),
 
     NormalRule(["com.jetbrains.cidr.lang.navigation.OCGotoDeclarationHandler.getActionText"],
-               "fixed https://youtrack.jetbrains.com/issue/CPP-8460"),
+               "goto declaration action text https://youtrack.jetbrains.com/issue/CPP-8460"),
 
     NormalRule(["com.jetbrains.cidr.lang.editor.parameterInfo.OCArgumentListCallPlace.collectCallOptions"],
-               "https://youtrack.jetbrains.com/issue/CPP-9361"),
+               "parameter info https://youtrack.jetbrains.com/issue/CPP-9361"),
 
     NormalRule(["com.jetbrains.cidr.lang.editor.OCFunctionParameterInfoHandler.updateParameterInfo"],
-               "https://youtrack.jetbrains.com/issue/CPP-9361"),
+               "parameter info https://youtrack.jetbrains.com/issue/CPP-9361"),
 
     NormalRule(["com.jetbrains.cidr.lang.navigation.OCSwitchToHeaderOrSourceRelatedProvider.getItems"],
-               "https://youtrack.jetbrains.com/issue/CPP-7168"),
+               "switch to source/header https://youtrack.jetbrains.com/issue/CPP-7168"),
 
     NormalRule(["com.jetbrains.cidr.lang.quickfixes.OCImportSymbolFix.showHint",
                 "com.jetbrains.cidr.lang.symbols.cpp.OCStructSymbol.getKindUppercase"],
-               "https://youtrack.jetbrains.com/issue/CPP-10663"),
+               "Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663"),
 
     NormalRule(["com.jetbrains.cidr.projectView.CidrFilesViewHelper$2.customizeCellRenderer",
                 "com.jetbrains.cidr.lang.search.scopes.OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"],
-               "https://youtrack.jetbrains.com/issue/CPP-10691"),
-
-    NormalRule(["com.intellij.openapi.progress.util.AbstractProgressIndicatorExBase.checkCanceled"],
-               "unknown (progress indicator)"),
+               "drawing project tree https://youtrack.jetbrains.com/issue/CPP-10691"),
 
     NormalRule(["com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureProcessor.runSynchronously",
                 "com.jetbrains.cidr.lang.refactoring.changeSignature.OCChangeSignatureUsageProcessor.findConflicts"],
@@ -82,41 +70,29 @@ FRAME_SEQ_TO_TICKET = [
 
     NormalRule(["com.intellij.ide.actions.SearchEverywhereAction",
                 "com.jetbrains.cidr.lang.symbols.OCSymbolBase.canNavigate",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
+                ENSURE_PARSED],
                "Search everywhere -> canNavigate -> reparsing"),
 
     NormalRule(["com.intellij.openapi.progress.util.PotemkinProgress.runInSwingThread"],
-               "Potemkin progress not working"),
-
-    NormalRule(["sun.java2d.opengl.OGLRenderQueue$QueueFlusher.flushNow",
-                "java.lang.Object.wait"],
-               "OpenGL wait"),
-
-    NormalRule(["com.intellij.history.integration.IdeaGateway.areContentChangesVersioned",
-                "com.intellij.history.integration.LocalHistoryEventDispatcher."],
-               "local history: areContentChangesVersioned"),
+               "Potemkin progress"),
 
     NormalRule(["com.intellij.ide.util.treeView.AbstractTreeStructureBase.getChildElements",
                 "com.jetbrains.cidr.lang.OCHeaderFileTypeDetector.detect"],
                "Project view: file type detector"),
 
-    NormalRule(["FileSymbolTablesCache$OCCodeBlockModificationListener.treeChanged",
-                "com.intellij.openapi.fileEditor.impl.LoadTextUtil.loadText"],
-               "File symbol cache: load text"),
-
     NormalRule(["com.intellij.execution.filters.FileHyperlinkInfoBase.navigate",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
+                ENSURE_PARSED],
                "File hyper links: reparse"),
 
     NormalRule(["com.intellij.find.actions.FindInPathAction.actionPerformed",
                 "com.intellij.find.impl.FindInProjectUtil.setDirectoryName",
                 "com.jetbrains.cidr.lang.symbols.OCSymbolBase.locateDefinition",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
+                ENSURE_PARSED],
                "Find in path: reparse"),
 
     NormalRule(["com.jetbrains.cidr.lang.formatting.OCAutoFormatTypedHandler.execute",
                 "com.intellij.psi.util.PsiUtilBase.getLanguageInEditor",
-                "com.jetbrains.cidr.lang.parser.OCFileElementType.parseContents"],
+                ENSURE_PARSED],
                "Auto format typed handler: get language and reparse"),
 
     NormalRule(["com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache$3.after",
@@ -127,9 +103,7 @@ FRAME_SEQ_TO_TICKET = [
                 "com.jetbrains.cidr.generate.actions.OCBaseGenerateTestAction.isValidForFile"],
                "Generate test: is valid for"),
 
-    NormalRule(["com.jetbrains.cidr.lang.refactoring.inline.OCInlineActionHandlerBase.inlineElement",
-                "com.jetbrains.cidr.lang.refactoring.inline.OCInlineActionHandlerBase.findUsages"],
-               "Inline element: findUsages"),
+    NormalRule(["com.jetbrains.cidr.lang.refactoring.inline.OCInlineActionHandlerBase.inlineElement"], "Inline"),
 
     NormalRule(["com.jetbrains.cidr.lang.refactoring.OCExtractMethodHandler.invoke",
                 "com.jetbrains.cidr.lang.refactoring.OCExtractMethodProcessor.invoke"],
@@ -163,14 +137,9 @@ FRAME_SEQ_TO_TICKET = [
     NormalRule(["com.jetbrains.cidr.lang.symbols.cpp.OCSymbolWithQualifiedName.getLocationString"],
                "getLocationString() (https://youtrack.jetbrains.com/issue/CPP-10102)"),
 
-    NormalRule(["com.intellij.util.ProfilingUtil"],
-               "reporting activity"),
-    NormalRule(["com.intellij.ide.actions.CollectZippedLogsAction"],
-               "reporting activity"),
-
     NormalRule(
         ["FileSymbolTablesCache$OCCodeBlockModificationListener.treeChanged",
-         "LazyParseableElement.ensureParsed"],
+         ENSURE_PARSED],
         "lazy reparsing (in processASTNodeForMacros?)"),
 
     NormalRule(["OCTypedHandlerDelegate.charTyped",
@@ -182,8 +151,8 @@ FRAME_SEQ_TO_TICKET = [
                "getData(PSI_ELEMENT)"),
 
     NormalRule(["com.intellij.ide.actions.NextOccurenceAction.go",
-                "LazyParseableElement.ensureParsed"],
-               "lazy reparsing (next occurence)"),
+                ENSURE_PARSED],
+               "next occurence -> reparsing"),
 
     NormalRule(["com.intellij.openapi.editor.impl.EditorGutterComponentImpl",
                 "com.jetbrains.cidr.lang.navigation.OCGotoAction.navigate"],
@@ -194,16 +163,13 @@ FRAME_SEQ_TO_TICKET = [
 
     NormalRule(["com.intellij.injected.editor.DocumentWindowImpl.isValid",
                 "com.intellij.psi.impl.source.tree.injected.ShredImpl.isValid",
-                "LazyParseableElement.ensureParsed"],
+                ENSURE_PARSED],
                "DocumentWindowImpl.isValid -> reparse"),
 
     NormalRule(["MyAutoScrollFromSourceHandler",
                 "SelectInTargetPsiWrapper.selectIn",
-                "LazyParseableElement.ensureParsed"],
+                ENSURE_PARSED],
                "Autoscroll to source -> reparse"),
-
-    NormalRule(["sun.java2d.pipe.DrawImage.blitSurfaceData"],
-               "Drawing something"),
 
     NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition", "OCSplitFunctionIntentionAction.invoke"],
                "Split function (https://youtrack.jetbrains.com/issue/CPP-11254)"),
@@ -223,16 +189,16 @@ FRAME_SEQ_TO_TICKET = [
     NormalRule(["OCCCppGenerateHandlerBase.invoke"],
                "CPP generate action"),
 
-    NormalRule(["GotoDeclarationAction.update", "LazyParseableElement.ensureParsed"],
+    NormalRule(["GotoDeclarationAction.update", ENSURE_PARSED],
                "Goto declaration -> reparse"),
 
-    NormalRule(["SelectWordHandler.doExecute", "LazyParseableElement.ensureParsed"],
+    NormalRule(["SelectWordHandler.doExecute", ENSURE_PARSED],
                "Select word/expand selection -> reparse"),
 
-    NormalRule(["CodeFoldingManagerImpl$1.mouseMoved", "LazyParseableElement.ensureParsed"],
+    NormalRule(["CodeFoldingManagerImpl$1.mouseMoved", ENSURE_PARSED],
                "Folding + mouse moved -> reparse"),
 
-    NormalRule(["TextEditorPsiDataProvider.getData", "LazyParseableElement.ensureParsed"],
+    NormalRule(["TextEditorPsiDataProvider.getData", ENSURE_PARSED],
                "TextEditorPsiDataProvider -> reparse"),
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
@@ -325,7 +291,8 @@ def get_summary(infos):
 
 
 def tickets_to_string(all_tickets):
-    return "\n".join("   {}: {}".format(t, u) for t, u in sorted(all_tickets.items(), key=lambda k: (k[1], k[0]), reverse=True))
+    return "\n".join(
+        "   {}: {}".format(t, u) for t, u in sorted(all_tickets.items(), key=lambda k: (k[1], k[0]), reverse=True))
 
 
 def collect_files(arg):

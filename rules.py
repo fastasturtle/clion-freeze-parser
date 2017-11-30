@@ -32,6 +32,7 @@ class NormalRule:
 NO_EDT_MSG = "No EDT found"
 WRITE_LOCK_MSG = "Waiting for write lock"
 CIDR_IN_BACKGROUND_MSG = "CIDR in background, but not in EDT"
+NO_CIDR_MSG = "No CIDR frames anywhere"
 
 
 def is_waiting_for_write_lock(edt_thread_info):
@@ -66,6 +67,7 @@ def process_custom(dump_file: DumpFileInfo):
                 cidr_in_background = True
     if not cidr_in_edt and cidr_in_background:
         return CIDR_IN_BACKGROUND_MSG
-
-    return None
-
+    elif not cidr_in_edt and not cidr_in_background:
+        return NO_CIDR_MSG
+    else:
+        return None
