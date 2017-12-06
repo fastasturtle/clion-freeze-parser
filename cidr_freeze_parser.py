@@ -144,7 +144,7 @@ FRAME_SEQ_TO_TICKET = [
 
     NormalRule(["OCTypedHandlerDelegate.charTyped",
                 "PsiDocumentManagerBase.commitDocument"],
-               "commit on typing https://youtrack.jetbrains.com/issue/CPP-6152"),
+               "commit on typing https://youtrack.jetbrains.com/issue/CPP-11365"),
 
     NormalRule(["TextEditorPsiDataProvider.getData",
                 "TargetElementUtil.findTargetElement"],
@@ -200,6 +200,9 @@ FRAME_SEQ_TO_TICKET = [
 
     NormalRule(["TextEditorPsiDataProvider.getData", ENSURE_PARSED],
                "TextEditorPsiDataProvider -> reparse"),
+
+    NormalRule(["CidrTestWithScopeElementsFramework.getTestLinks"],
+               "CidrTestWithScopeElementsFramework.getTestLinks"),
 
     # If a typical thread dump for a freeze has several characteristic frames in EDT,
     # add the following entry:
