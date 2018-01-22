@@ -70,5 +70,8 @@ def get_rules():
 
         NormalRule(["TextEditorPsiDataProvider.getData", ENSURE_PARSED],
                    "TextEditorPsiDataProvider -> reparse"),
+
+        NormalRule(["CtrlMouseHandler", "getEditorForInjectedLanguageNoCommit", ENSURE_PARSED],
+                   "CtrlMouseHandler + injected editor (CPP-11610)"),
     ]
     return rules
