@@ -120,7 +120,8 @@ def collect_files(arg):
                 yield folder_name + '/' + filenames[0]
             else:
                 for file in filenames:
-                    yield folder_name + '/' + file
+                    if not os.path.basename(file).startswith("."):
+                        yield folder_name + '/' + file
     else:
         raise ValueError("Invalid file or folder: " + str(arg))
 

@@ -8,7 +8,7 @@ def get_rules():
                     "OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"],
                    desc("drawing project tree", "CPP-10691")),
         NormalRule(["PotemkinProgress.runInSwingThread"],
-                   desc("Potemkin progress")),
+                   desc("Potemkin progress", bug="not a bug")),
         NormalRule(["AbstractTreeStructureBase.getChildElements",
                     "OCHeaderFileTypeDetector.detect"],
                    desc("Project view: file type detector")),
