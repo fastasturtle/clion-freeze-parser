@@ -1,6 +1,6 @@
 All found tickets:
-   fixed https://youtrack.jetbrains.com/issue/CPP-8460: 1
+   goto declaration action text https://youtrack.jetbrains.com/issue/CPP-8460: 1
 Unknown traces (0):
 
 
-testdata/goto_action_text.txt: fixed https://youtrack.jetbrains.com/issue/CPP-8460
+testdata/goto_action_text.txt: goto declaration action text https://youtrack.jetbrains.com/issue/CPP-8460

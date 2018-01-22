@@ -1,12 +1,12 @@
 All found tickets:
-   https://youtrack.jetbrains.com/issue/CPP-10663: 2
-   fixed? https://youtrack.jetbrains.com/issue/CPP-10639: 1
+   Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663: 2
+   Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639): 1
    No EDT found: 1
 Unknown traces (1):
 testdata/test-folder/unknown.txt
 
-testdata/test-folder/autoimport_is_cpp.txt: https://youtrack.jetbrains.com/issue/CPP-10663
-testdata/test-folder/autoimport_is_cpp2.txt: https://youtrack.jetbrains.com/issue/CPP-10663
+testdata/test-folder/autoimport_is_cpp.txt: Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663
+testdata/test-folder/autoimport_is_cpp2.txt: Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663
 testdata/test-folder/no_edt.txt: No EDT found
 testdata/test-folder/unknown.txt: UNKNOWN
 
@@ -68,4 +68,4 @@ testdata/test-folder/unknown.txt: UNKNOWN
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 
-testdata/test-folder/write_folding_state.txt: fixed? https://youtrack.jetbrains.com/issue/CPP-10639
+testdata/test-folder/write_folding_state.txt: Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639)

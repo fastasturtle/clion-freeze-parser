@@ -1,6 +1,6 @@
 All found tickets:
-   https://youtrack.jetbrains.com/issue/CPP-10663: 1
+   Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663: 1
 Unknown traces (0):
 
 
-testdata/autoimport_is_cpp.txt: https://youtrack.jetbrains.com/issue/CPP-10663
+testdata/autoimport_is_cpp.txt: Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663
