@@ -1,6 +1,6 @@
 All found tickets:
    CIDR in background, but not in EDT: 3
-   create IdentifierHighlighterPass pass (https://youtrack.jetbrains.com/issue/CPP-9373): 1
+   fixed in review create IdentifierHighlighterPass pass (CPP-9373): 1
    Waiting for write lock: 1
 Unknown traces (0):
 
@@ -9,4 +9,4 @@ testdata/Archive/threadDumps-freeze-20170530-123034-CL-172.2465.12/threadDump-20
 testdata/Archive/threadDumps-freeze-20170530-123138-CL-172.2465.12/threadDump-20170530-123138.txt: CIDR in background, but not in EDT
 testdata/Archive/threadDumps-freeze-20170530-123215-CL-172.2465.12/threadDump-20170530-123215.txt: CIDR in background, but not in EDT
 testdata/Archive/threadDumps-freeze-20170530-123436-CL-172.2465.12-108sec/threadDump-20170530-123436.txt: Waiting for write lock
-testdata/Archive/threadDumps-freeze-20170530-123732-CL-172.2465.12-91sec/threadDump-20170530-123732.txt: create IdentifierHighlighterPass pass (https://youtrack.jetbrains.com/issue/CPP-9373)
+testdata/Archive/threadDumps-freeze-20170530-123732-CL-172.2465.12-91sec/threadDump-20170530-123732.txt: fixed in review create IdentifierHighlighterPass pass (CPP-9373)

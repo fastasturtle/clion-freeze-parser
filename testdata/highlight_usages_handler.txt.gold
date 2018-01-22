@@ -1,6 +1,6 @@
 All found tickets:
-   create IdentifierHighlighterPass pass (https://youtrack.jetbrains.com/issue/CPP-9373): 1
+   fixed in review create IdentifierHighlighterPass pass (CPP-9373): 1
 Unknown traces (0):
 
 
-testdata/highlight_usages_handler.txt: create IdentifierHighlighterPass pass (https://youtrack.jetbrains.com/issue/CPP-9373)
+testdata/highlight_usages_handler.txt: fixed in review create IdentifierHighlighterPass pass (CPP-9373)

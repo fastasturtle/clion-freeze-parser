@@ -1,11 +1,12 @@
+from freeze_rules.util import desc
 from rules import NormalRule
 
 
 def get_rules():
     rules = [
         NormalRule(["OCSymbolWithQualifiedName.getLocationString"],
-                   "getLocationString() (https://youtrack.jetbrains.com/issue/CPP-10102)"),
+                   desc("getLocationString()", "CPP-10102", fixed="review")),
         NormalRule(["TextEditorPsiDataProvider.getData", "TargetElementUtil.findTargetElement"],
-                   "getData(PSI_ELEMENT)"),
+                   desc("getData(PSI_ELEMENT)")),
     ]
     return rules

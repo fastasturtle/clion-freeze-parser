@@ -1,6 +1,6 @@
 All found tickets:
-   usages view https://youtrack.jetbrains.com/issue/CPP-8459: 1
+   usages view (CPP-8459): 1
 Unknown traces (0):
 
 
-testdata/find_usages_lazy_block.txt: usages view https://youtrack.jetbrains.com/issue/CPP-8459
+testdata/find_usages_lazy_block.txt: usages view (CPP-8459)

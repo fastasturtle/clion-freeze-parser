@@ -1,70 +1,72 @@
+from freeze_rules.util import desc
 from rules import NormalRule
 
 
 def get_rules():
     rules = [
         NormalRule(["OCRenameProcessor.prepareRenaming"],
-                   "Rename"),
+                   desc("Rename")),
 
         NormalRule(["OCInplaceRenameHandler.doRename"],
-                   "Rename"),
+                   desc("Rename")),
 
         NormalRule(["OCCreateNewDefinitionIntentionAction.getText"],
-                   "OCCreateNewDefinitionIntentionAction.getText"),
+                   desc("OCCreateNewDefinitionIntentionAction.getText")),
 
         NormalRule(["OCCCppGenerateHandlerBase.invoke"],
-                   "CPP generate action"),
+                   desc("CPP generate action")),
 
         NormalRule(["OCGotoDeclarationHandler.getActionText"],
-                   "goto declaration action text https://youtrack.jetbrains.com/issue/CPP-8460"),
+                   desc("goto declaration action text", "CPP-8460", fixed=173)),
 
         NormalRule(["OCArgumentListCallPlace.collectCallOptions"],
-                   "parameter info https://youtrack.jetbrains.com/issue/CPP-9361"),
+                   desc("parameter info", "CPP-9361")),
 
         NormalRule(["OCFunctionParameterInfoHandler.updateParameterInfo"],
-                   "parameter info https://youtrack.jetbrains.com/issue/CPP-9361"),
+                   desc("parameter info", "CPP-9361")),
 
         NormalRule(["OCSwitchToHeaderOrSourceRelatedProvider.getItems"],
-                   "switch to source/header https://youtrack.jetbrains.com/issue/CPP-7168"),
+                   desc("switch to source/header", "CPP-7168")),
 
         NormalRule(["OCImportSymbolFix.showHint",
                     "OCStructSymbol.getKindUppercase"],
-                   "Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663"),
+                   desc("Import symbol fix", "CPP-10663", fixed=181)),
         NormalRule(["OCBaseGenerateTestAction.update",
                     "OCBaseGenerateTestAction.isValidForFile"],
-                   "Generate test: is valid for"),
+                   desc("Generate test: is valid for")),
 
-        NormalRule(["OCInlineActionHandlerBase.inlineElement"], "Inline"),
+        NormalRule(["OCInlineActionHandlerBase.inlineElement"],
+                   desc("Inline")),
 
         NormalRule(["OCExtractMethodHandler.invoke",
                     "OCExtractMethodProcessor.invoke"],
-                   "Extract method"),
+                   desc("Extract method")),
 
         NormalRule(["OCSymbolWithQualifiedName.processSameSymbols",
                     "OCAbstractMoveDialog.setMembersChecked"],
-                   "Move"),
+                   desc("Move")),
 
         NormalRule(["OCMoveTopLevelRefactoringHandler.showDialog",
                     "OCDependentMembersCollector.collect"],
-                   "Move"),
+                   desc("Move")),
 
         NormalRule(["OCMoveProcessor"],
-                   "Move"),
+                   desc("Move")),
 
         NormalRule(["OCMoveRefactoringHandler.showDialog"],
-                   "Move"),
+                   desc("Move")),
 
         NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition", "OCSplitFunctionIntentionAction.invoke"],
-                   "Split function (https://youtrack.jetbrains.com/issue/CPP-11254)"),
+                   desc("Split function", "CPP-11254")),
 
         NormalRule(["OCGenerateUtil.applyReplacements", "OCImportSymbolFix.fixAllSymbolsRecursively"],
-                   "Generate definition: import fix"),
+                   desc("Generate definition: import fix", fixed="review")),
 
         NormalRule(["OCChangeSignatureProcessor.runSynchronously",
                     "OCChangeSignatureUsageProcessor.findConflicts"],
-                   "Change signature: find conflicts"),
+                   desc("Change signature: find conflicts")),
 
         NormalRule(["OCChangeSignatureProcessor.preprocessUsages"],
-                   "Change signature: preprocessUsages"),
+                   desc("Change signature: preprocessUsages")),
     ]
     return rules

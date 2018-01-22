@@ -1,15 +1,16 @@
+from freeze_rules.util import desc
 from rules import NormalRule
 
 
 def get_rules():
     rules = [
         NormalRule(["CidrTestWithScopeElementsFramework.getTestLinks"],
-                   "CidrTestWithScopeElementsFramework.getTestLinks"),
+                   desc("CidrTestWithScopeElementsFramework.getTestLinks")),
         NormalRule(["Utils.fillMenu",
                     "CidrTestRunConfigurationProducer.isConfigurationFromContext"],
-                   "Context configuration click"),
+                   desc("Context configuration click")),
         NormalRule(["CidrRunConfigurationSettingsEditor$MyComboBox.fireSelectedItemChanged",
                     "CidrGoogleTestRunConfigurationData"],
-                   "Google test run configuration editor"),
+                   desc("Google test run configuration editor")),
     ]
     return rules

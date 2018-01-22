@@ -1,6 +1,6 @@
 All found tickets:
-   Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663: 1
+   fixed in 181 Import symbol fix (CPP-10663): 1
 Unknown traces (0):
 
 
-testdata/autoimport_is_cpp.txt: Import symbol fix https://youtrack.jetbrains.com/issue/CPP-10663
+testdata/autoimport_is_cpp.txt: fixed in 181 Import symbol fix (CPP-10663)

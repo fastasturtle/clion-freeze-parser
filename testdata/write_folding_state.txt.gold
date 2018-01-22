@@ -1,6 +1,6 @@
 All found tickets:
-   Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639): 1
+   fixed in 173 Save folding state (CPP-10639): 1
 Unknown traces (0):
 
 
-testdata/write_folding_state.txt: Save folding state (https://youtrack.jetbrains.com/issue/CPP-10639)
+testdata/write_folding_state.txt: fixed in 173 Save folding state (CPP-10639)

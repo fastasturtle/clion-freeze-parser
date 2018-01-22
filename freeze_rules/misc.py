@@ -1,3 +1,4 @@
+from freeze_rules.util import desc
 from rules import NormalRule
 
 
@@ -5,23 +6,23 @@ def get_rules():
     rules = [
         NormalRule(["CidrFilesViewHelper$2.customizeCellRenderer",
                     "OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"],
-                   "drawing project tree https://youtrack.jetbrains.com/issue/CPP-10691"),
+                   desc("drawing project tree", "CPP-10691")),
         NormalRule(["PotemkinProgress.runInSwingThread"],
-                   "Potemkin progress"),
+                   desc("Potemkin progress")),
         NormalRule(["AbstractTreeStructureBase.getChildElements",
                     "OCHeaderFileTypeDetector.detect"],
-                   "Project view: file type detector"),
+                   desc("Project view: file type detector")),
         NormalRule(["FileSymbolTablesCache",
                     "FileBasedIndexImpl$ChangedFilesCollector.ensureUpToDateAsync"],
-                   "File symbols cache: ensure up-to-date async"),
+                   desc("File symbols cache: ensure up-to-date async")),
         NormalRule(["editorActions.EnterHandler"],
-                   "Enter handler"),
+                   desc("Enter handler")),
 
         NormalRule(["EditorGutterComponentImpl",
                     "OCGotoAction.navigate"],
-                   "gutter -> goto"),
+                   desc("gutter -> goto")),
 
         NormalRule(["CidrWatchpointHandler.cleanup"],
-                   "WA in stop breakpoint (https://youtrack.jetbrains.com/issue/CPP-11330)"),
+                   desc("WA in stop breakpoint", "CPP-11330", fixed=181)),
     ]
     return rules
