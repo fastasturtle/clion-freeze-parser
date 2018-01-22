@@ -44,11 +44,11 @@ def get_rules():
                     "OCAbstractMoveDialog.setMembersChecked"],
                    "Move"),
 
-        NormalRule(["com.jetbrains.cidr.lang.refactoring.move.handlers.OCMoveTopLevelRefactoringHandler.showDialog",
-                    "com.jetbrains.cidr.lang.refactoring.move.OCDependentMembersCollector.collect"],
+        NormalRule(["OCMoveTopLevelRefactoringHandler.showDialog",
+                    "OCDependentMembersCollector.collect"],
                    "Move"),
 
-        NormalRule(["com.jetbrains.cidr.lang.refactoring.move.OCMoveProcessor"],
+        NormalRule(["OCMoveProcessor"],
                    "Move"),
 
         NormalRule(["OCMoveRefactoringHandler.showDialog"],
