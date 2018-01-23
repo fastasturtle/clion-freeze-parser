@@ -43,15 +43,18 @@ def extract_edt_call_stack(lines):
 
 def match_stack(stack):
     if stack is not None:
-        custom = process_custom(stack)
-        if custom is not None:
-            return {custom}
         messages = set()
         for rule in FRAME_SEQ_TO_TICKET:
             message = rule.is_matched(stack)
             if message:
                 messages.add(message)
-        return messages
+        if messages:
+            return messages
+        custom = process_custom(stack)
+        if custom is not None:
+            return {custom}
+        else:
+            return set()
     else:
         return set()
 
