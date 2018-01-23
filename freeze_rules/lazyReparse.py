@@ -24,13 +24,13 @@ def get_rules():
                    desc("Save folding state", "CPP-10639", fixed=173)),
 
         NormalRule(["HighlightUsagesHandlerFactoryBase.createHighlightUsagesHandler", ENSURE_PARSED],
-                   desc("create IdentifierHighlighterPass pass", "CPP-9373", fixed="review")),
+                   desc("create IdentifierHighlighterPass pass", "CPP-9373", fixed=181)),
 
         NormalRule(["SearchEverywhereAction", "OCSymbolBase.canNavigate", ENSURE_PARSED],
                    desc("Search everywhere -> canNavigate -> reparse")),
 
         NormalRule(["FileHyperlinkInfoBase.navigate", ENSURE_PARSED],
-                   desc("File hyper links: reparse", "CPP-11601", fixed="review")),
+                   desc("File hyper links: reparse", "CPP-11601", fixed=181)),
 
         NormalRule(["FindInPathAction.actionPerformed",
                     "FindInProjectUtil.setDirectoryName",
