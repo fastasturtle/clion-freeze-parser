@@ -24,5 +24,8 @@ def get_rules():
 
         NormalRule(["CidrWatchpointHandler.cleanup"],
                    desc("WA in stop breakpoint", "CPP-11330", fixed=181)),
+
+        NormalRule(["Inet4AddressImpl.getLocalHostName"],
+                   desc("Slow getLocalHostName", "JRE-251", fixed=181)),
     ]
     return rules
