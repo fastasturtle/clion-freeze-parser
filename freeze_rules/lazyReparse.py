@@ -61,7 +61,7 @@ def get_rules():
                    desc("Goto declaration update -> reparse")),
 
         NormalRule(["SelectWordHandler.doExecute", ENSURE_PARSED],
-                   desc("Select word/expand selection -> reparse")),
+                   desc("Select word/expand selection -> reparse", "CPP-11901")),
 
         NormalRule(["CodeFoldingManagerImpl$1.mouseMoved", ENSURE_PARSED],
                    desc("Folding + mouse moved -> reparse")),
