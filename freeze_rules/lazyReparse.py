@@ -67,7 +67,7 @@ def get_rules():
                    desc("Folding + mouse moved -> reparse")),
 
         NormalRule(["TextEditorPsiDataProvider.getData", ENSURE_PARSED],
-                   desc("TextEditorPsiDataProvider -> reparse")),
+                   desc("TextEditorPsiDataProvider -> reparse", "CPP-11936")),
 
         NormalRule(["CtrlMouseHandler", "getEditorForInjectedLanguageNoCommit", ENSURE_PARSED],
                    desc("CtrlMouseHandler + injected editor", "CPP-11610")),
