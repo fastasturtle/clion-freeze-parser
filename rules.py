@@ -18,6 +18,9 @@ def _contains_frames(frames, thread_info):
 
 
 class NormalRule:
+    """
+    Class for describing search rules.
+    """
     def __init__(self, frame_seq, message):
         """
         :param frame_seq: List[str]
@@ -37,6 +40,11 @@ class NormalRule:
         if _contains_frames(self.frame_seq, edt_thread_info):
             return self.message
         return False
+
+
+def desc(text, bug="CPP-?????", fixed=None):
+    fixed_text = ("fixed in " + str(fixed) + " " if fixed else "")
+    return fixed_text + text + " (" + bug + ")"
 
 
 NO_EDT_MSG = "No EDT found"

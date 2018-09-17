@@ -1,5 +1,4 @@
-from freeze_rules.util import desc
-from rules import NormalRule
+from rules import NormalRule, desc
 
 
 def get_rules():

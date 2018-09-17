@@ -12,10 +12,6 @@ Automatically detect issue IDs related to a CLion freeze.
 If a folder name has a `threadDumps-freeze-20` substring, all containing dumps
 are assumed to have a single cause (and only one is processed).
 
-### Prerequisites
-
-Python 3
-
 
 ### Output
 
