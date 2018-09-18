@@ -5,7 +5,9 @@ def get_rules():
     rules = [
         NormalRule(["OCTypedHandlerDelegate.charTyped",
                     "PsiDocumentManagerBase.commitDocument"],
-                   desc("commit on typing", "CPP-11365")),
+                   desc("commit on typing", "CPP-11365", fixed=181)),
+
+
 
     ]
     return rules
