@@ -21,6 +21,11 @@ def print_usage():
 
 
 def extract_edt_call_stack(lines):
+    """
+    Extract EDT call stack from all dump
+    :param lines: List[str] param. List of all file lines.
+    :return: list of EDT stack trace calls
+    """
     res = []
     in_edt = False
     before_ats = True
@@ -40,6 +45,11 @@ def extract_edt_call_stack(lines):
 
 
 def match_stack(stack):
+    """
+    Search EDT stack for known freeze described in FRAME_SEQ_TO_TICKET
+    :param stack:
+    :return:
+    """
     if stack is not None:
         messages = set()
         for rule in FRAME_SEQ_TO_TICKET:
@@ -134,7 +144,8 @@ def collect_files(arg):
 
 def parse_args_and_process_files(args):
     files = [f for arg in args for f in collect_files(arg)]
-    return get_summary(process_file(f) for f in files)
+    infos = [process_file(f) for f in files]
+    return get_summary(infos)
 
 
 def main():
