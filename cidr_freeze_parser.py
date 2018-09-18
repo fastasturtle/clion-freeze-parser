@@ -13,6 +13,7 @@ FRAME_SEQ_TO_TICKET = \
     freeze_rules.commit.get_rules() + \
     freeze_rules.lazyReparse.get_rules() + \
     freeze_rules.misc.get_rules() + \
+    freeze_rules.plugin.get_rules() + \
     freeze_rules.resolve.get_rules() + \
     freeze_rules.tests.get_rules()
 
