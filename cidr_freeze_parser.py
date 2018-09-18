@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from collections import defaultdict
 
 from dump_file import parse_dump_file
@@ -145,7 +146,16 @@ def collect_files(arg):
 def parse_args_and_process_files(args):
     files = [f for arg in args for f in collect_files(arg)]
     infos = [process_file(f) for f in files]
-    return get_summary(infos)
+    summary = get_summary(infos)
+
+    output_dir = os.path.join(os.path.dirname(__file__), "out")
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    result_file = "result-" + time.strftime("%Y%m%d-%H%M%S") + ".txt"
+    with open(os.path.join(output_dir, result_file), "w") as out_file:
+        out_file.writelines(summary)
+    return summary
 
 
 def main():
