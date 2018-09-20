@@ -70,5 +70,8 @@ def get_rules():
 
         NormalRule(["OCChangeSignatureProcessor.preprocessUsages"],
                    desc("Change signature: preprocessUsages")),
+
+        NormalRule(["LoadCMakeProjectAction.actionPerformed"],
+                   desc("Load CMake project", "CPP-14237")),
     ]
     return rules
