@@ -77,5 +77,8 @@ def get_rules():
         NormalRule(["OCSymbolWithQualifiedNameImpl.processAssociatedSymbols",
                     "FindUsagesAction.actionPerformed"],
                    desc("Find usages search associated targets", "CPP-12806")),
+
+        NormalRule(["SearchAgainAction.actionPerformed"],
+                   desc("Search again", "CPP-14288")),
     ]
     return rules
