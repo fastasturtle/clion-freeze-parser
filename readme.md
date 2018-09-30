@@ -9,6 +9,8 @@ Automatically detects issue IDs related to a CLion freeze.
 ./cidr_freeze_parser.py freezeFolder > result.txt
 ```
 
+Results are printed to stdout. If `-o` flag is passed, results are saved to the `out` directory as well.
+
 If a folder name has a `threadDumps-freeze-20` substring, all containing dumps
 are assumed to have a single cause (and only one is processed).
 
