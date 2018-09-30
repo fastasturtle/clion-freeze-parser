@@ -13,10 +13,9 @@ def run_tests():
         file_name = 'testdata/' + f
         gold_name = file_name + ".gold"
         out_name = file_name + ".out"
-        try:
+
+        if os.path.exists(out_name):
             os.remove(out_name)
-        except FileNotFoundError:
-            pass
 
         with open(gold_name) as gold_file:
             result = parse_args_and_process_files([file_name])

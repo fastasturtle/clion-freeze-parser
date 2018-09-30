@@ -1,8 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import os
 import sys
+import time
 from collections import defaultdict
-from typing import List
 
 from dump_file import parse_dump_file
 from rules import process_custom
@@ -23,6 +23,11 @@ def print_usage():
 
 
 def extract_edt_call_stack(lines):
+    """
+    Extract EDT call stack from all dump
+    :param lines: List[str] param. List of all file lines.
+    :return: list of EDT stack trace calls
+    """
     res = []
     in_edt = False
     before_ats = True
@@ -42,6 +47,11 @@ def extract_edt_call_stack(lines):
 
 
 def match_stack(stack):
+    """
+    Search EDT stack for known freeze described in FRAME_SEQ_TO_TICKET
+    :param stack:
+    :return:
+    """
     if stack is not None:
         messages = set()
         for rule in FRAME_SEQ_TO_TICKET:
@@ -66,7 +76,12 @@ class ThreadDumpInfo:
         self.lines = lines
 
 
-def process_thread_dump(file_name, lines: List[str]):
+def process_thread_dump(file_name, lines):
+    """
+    :param file_name:
+    :param lines: List[str] param
+    :return: ThreadDumpInfo
+    """
     stack = extract_edt_call_stack(lines)
     dump_info = parse_dump_file(lines)
     messages = match_stack(dump_info)
@@ -122,9 +137,9 @@ def collect_files(arg):
                 # assume all freezes in this folder have the same cause
                 yield folder_name + '/' + filenames[0]
             else:
-                for file in filenames:
-                    if not os.path.basename(file).startswith("."):
-                        yield folder_name + '/' + file
+                for f in filenames:
+                    if not os.path.basename(f).startswith("."):
+                        yield folder_name + '/' + f
     else:
         raise ValueError("Invalid file or folder: " + str(arg))
 

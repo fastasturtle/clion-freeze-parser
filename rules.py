@@ -1,9 +1,11 @@
-from typing import List
-
-from dump_file import DumpFileInfo, ThreadInfo
 
 
-def _contains_frames(frames: List[str], thread_info: ThreadInfo):
+def _contains_frames(frames, thread_info):
+    """
+    :param frames: List[str]
+    :param thread_info: hreadInfo
+    :return:
+    """
     for f in frames:
         found = False
         for l in thread_info.frames:
@@ -16,17 +18,33 @@ def _contains_frames(frames: List[str], thread_info: ThreadInfo):
 
 
 class NormalRule:
-    def __init__(self, frame_seq: List[str], message: str):
+    """
+    Class for describing search rules.
+    """
+    def __init__(self, frame_seq, message):
+        """
+        :param frame_seq: List[str]
+        :param message: str
+        """
         self.frame_seq = frame_seq
         self.message = message
 
-    def is_matched(self, dump_file: DumpFileInfo):
+    def is_matched(self, dump_file):
+        """
+        :param dump_file: DumpFileInfo
+        :return:
+        """
         edt_thread_info = dump_file.get_edt_info()
         if edt_thread_info is None:
             return False
         if _contains_frames(self.frame_seq, edt_thread_info):
             return self.message
         return False
+
+
+def desc(text, bug="CPP-?????", fixed=None):
+    fixed_text = ("fixed in " + str(fixed) + " " if fixed else "")
+    return fixed_text + text + " (" + bug + ")"
 
 
 NO_EDT_MSG = "No EDT found"
@@ -43,14 +61,22 @@ def is_waiting_for_write_lock(edt_thread_info):
     return True
 
 
-def has_cidr(info: ThreadInfo):
+def has_cidr(info):
+    """
+    :param info: ThreadInfo
+    :return:
+    """
     for frame in info.frames:
         if "cidr" in frame:
             return True
     return False
 
 
-def process_custom(dump_file: DumpFileInfo):
+def process_custom(dump_file):
+    """
+    :param dump_file: DumpFileInfo
+    :return: Optional[str]
+    """
     edt_thread_info = dump_file.get_edt_info()
     if edt_thread_info is None:
         return NO_EDT_MSG

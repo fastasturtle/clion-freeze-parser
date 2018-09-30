@@ -1,5 +1,4 @@
-from freeze_rules.util import desc
-from rules import NormalRule
+from rules import NormalRule, desc
 
 
 def get_rules():
@@ -31,6 +30,7 @@ def get_rules():
         NormalRule(["OCImportSymbolFix.showHint",
                     "OCStructSymbol.getKindUppercase"],
                    desc("Import symbol fix", "CPP-10663", fixed=181)),
+
         NormalRule(["OCBaseGenerateTestAction.update",
                     "OCBaseGenerateTestAction.isValidForFile"],
                    desc("Generate test: is valid for")),
@@ -56,10 +56,12 @@ def get_rules():
         NormalRule(["OCMoveRefactoringHandler.showDialog"],
                    desc("Move")),
 
-        NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition", "OCSplitFunctionIntentionAction.invoke"],
+        NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition",
+                    "OCSplitFunctionIntentionAction.invoke"],
                    desc("Split function", "CPP-11254")),
 
-        NormalRule(["OCGenerateUtil.applyReplacements", "OCImportSymbolFix.fixAllSymbolsRecursively"],
+        NormalRule(["OCGenerateUtil.applyReplacements",
+                    "OCImportSymbolFix.fixAllSymbolsRecursively"],
                    desc("Generate definition: import fix", fixed="review")),
 
         NormalRule(["OCChangeSignatureProcessor.runSynchronously",

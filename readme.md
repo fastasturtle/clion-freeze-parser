@@ -1,6 +1,6 @@
 # CLion freeze dump parser
 
-Automatically detect issue IDs related to a CLion freeze.
+Automatically detects issue IDs related to a CLion freeze.
 
 ## Usage
 
@@ -14,8 +14,7 @@ are assumed to have a single cause (and only one is processed).
 
 ### Prerequisites
 
-Python 3
-
+Python 2 or 3
 
 ### Output
 
