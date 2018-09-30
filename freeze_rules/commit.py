@@ -1,11 +1,13 @@
-from freeze_rules.util import desc
-from rules import NormalRule
+from rules import NormalRule, desc
 
 
 def get_rules():
     rules = [
-        NormalRule(["OCTypedHandlerDelegate.charTyped", "PsiDocumentManagerBase.commitDocument"],
-                   desc("commit on typing", "CPP-11365")),
+        NormalRule(["OCTypedHandlerDelegate.charTyped",
+                    "PsiDocumentManagerBase.commitDocument"],
+                   desc("commit on typing", "CPP-11365", fixed=181)),
+
+
 
     ]
     return rules

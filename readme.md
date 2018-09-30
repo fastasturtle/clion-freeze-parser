@@ -1,21 +1,18 @@
 # CLion freeze dump parser
 
-Automatically detect issue IDs related to a CLion freeze.
+Automatically detects issue IDs related to a CLion freeze.
 
 ## Usage
 
 ```
-./cidr_freeze_parser.py dump.txt > result.txt
-./cidr_freeze_parser.py freezeFolder > result.txt
+python ./cidr_freeze_parser.py dump.txt
+python ./cidr_freeze_parser.py freezeFolder
 ```
 
 If a folder name has a `threadDumps-freeze-20` substring, all containing dumps
 are assumed to have a single cause (and only one is processed).
 
-### Prerequisites
-
-Python 3
-
+Results are stored in `out` directory.    
 
 ### Output
 
