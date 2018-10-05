@@ -56,9 +56,12 @@ def get_rules():
         NormalRule(["OCMoveRefactoringHandler.showDialog"],
                    desc("Move")),
 
+        NormalRule(["OCMoveHandlerDelegate.tryToMove"],
+                   desc("Move after editing common header", bug="CPP-14352")),
+
         NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition",
                     "OCSplitFunctionIntentionAction.invoke"],
-                   desc("Split function", "CPP-11254")),
+                   desc("Split function", bug="CPP-11254")),
 
         NormalRule(["OCGenerateUtil.applyReplacements",
                     "OCImportSymbolFix.fixAllSymbolsRecursively"],
