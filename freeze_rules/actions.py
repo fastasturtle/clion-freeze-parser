@@ -7,7 +7,8 @@ def get_rules():
                    desc("Rename")),
 
         NormalRule(["OCInplaceRenameHandler.doRename"],
-                   desc("Rename")),
+                   desc("Rename", bug="CPP-14434")),
+
 
         NormalRule(["OCCreateNewDefinitionIntentionAction.getText"],
                    desc("OCCreateNewDefinitionIntentionAction.getText")),
