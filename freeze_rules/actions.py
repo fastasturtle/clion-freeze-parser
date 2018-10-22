@@ -84,5 +84,9 @@ def get_rules():
 
         NormalRule(["SearchAgainAction.actionPerformed"],
                    desc("Search again", "CPP-14288")),
+
+        NormalRule(["ImportCMakeProjectAction.actionPerformed"],
+                   desc("Import CMake Project", "CPP-14495")),
+
     ]
     return rules
