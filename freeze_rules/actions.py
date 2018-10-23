@@ -73,5 +73,15 @@ def get_rules():
 
         NormalRule(["LoadCMakeProjectAction.actionPerformed"],
                    desc("Load CMake project", "CPP-14237")),
+        
+         NormalRule(["OCSymbolWithQualifiedNameImpl.processAssociatedSymbols",
+                    "FindUsagesAction.actionPerformed"],
+                   desc("Find usages search associated targets", "CPP-12806")),
+
+        NormalRule(["SearchAgainAction.actionPerformed"],
+                   desc("Search again", "CPP-14288")),
+
+        NormalRule(["ImportCMakeProjectAction.actionPerformed"],
+                   desc("Import CMake Project", "CPP-14495")),
     ]
     return rules
