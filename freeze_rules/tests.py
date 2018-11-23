@@ -4,7 +4,7 @@ from rules import NormalRule, desc
 def get_rules():
     rules = [
         NormalRule(["CidrTestWithScopeElementsFramework.getTestLinks"],
-                   desc("CidrTestWithScopeElementsFramework.getTestLinks")),
+                   desc("CidrTestWithScopeElementsFramework.getTestLinks", "CPP-11735", fixed=183)),
 
         NormalRule(["Utils.fillMenu",
                     "CidrTestRunConfigurationProducer.isConfigurationFromContext"],
