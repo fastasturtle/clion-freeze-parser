@@ -96,5 +96,9 @@ def get_rules():
                     "getEditorForInjectedLanguageNoCommit",
                     ENSURE_PARSED],
                    desc("CtrlMouseHandler + injected editor", "CPP-11610")),
+
+        NormalRule(["documentation.QuickDocOnMouseOverManager",
+                    ENSURE_PARSED],
+                   desc("Quick Documentation on mouse move -> reparse", "CPP-12831")),
     ]
     return rules
