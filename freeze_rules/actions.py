@@ -92,5 +92,8 @@ def get_rules():
         NormalRule(["ImportCMakeProjectAction.actionPerformed"],
                    desc("Import CMake Project", "CPP-14495")),
 
+        NormalRule(["mac.touchbar.TouchBar"],
+                   desc("Touchbar action updates might lead to freezes", "CPP-14495")),
+
     ]
     return rules
