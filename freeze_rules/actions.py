@@ -95,5 +95,11 @@ def get_rules():
         NormalRule(["mac.touchbar.TouchBar"],
                    desc("Touchbar action updates might lead to freezes", "CPP-14495")),
 
+        NormalRule(["com.intellij.codeInsight.completion.CodeCompletionHandlerBase"],
+                   desc("Code completion", "CPP-14780")),
+
+        NormalRule(["com.intellij.ide.ui.laf.darcula.ui.TextFieldWithPopupHandlerUI"],
+                   desc("Deadlock on Search Everywhere", "IDEA-196919")),
+
     ]
     return rules
