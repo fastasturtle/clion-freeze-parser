@@ -9,7 +9,6 @@ def get_rules():
         NormalRule(["OCInplaceRenameHandler.doRename"],
                    desc("Rename", bug="CPP-14434")),
 
-
         NormalRule(["OCCreateNewDefinitionIntentionAction.getText"],
                    desc("OCCreateNewDefinitionIntentionAction.getText")),
 
@@ -101,5 +100,8 @@ def get_rules():
         NormalRule(["com.intellij.ide.ui.laf.darcula.ui.TextFieldWithPopupHandlerUI"],
                    desc("Deadlock on Search Everywhere", "IDEA-196919")),
 
+        NormalRule(["actions.DeleteAction.actionPerformed",
+                    "projectView.impl.ProjectViewImpl"],
+                   desc("Delete build directory may lead the freeze", "CPP-14872")),
     ]
     return rules
