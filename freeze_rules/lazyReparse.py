@@ -100,5 +100,18 @@ def get_rules():
         NormalRule(["documentation.QuickDocOnMouseOverManager",
                     ENSURE_PARSED],
                    desc("Quick Documentation on mouse move -> reparse", bug="CPP-12831")),
+
+        NormalRule(["editorActions.PasteHandle",
+                    ENSURE_PARSED],
+                   desc("Paste function from huge header -> reparse", bug="CPP-14849")),
+
+        NormalRule(["editorActions.CutHandler",
+                    ENSURE_PARSED],
+                   desc("Cut function from huge header -> reparse", bug="CPP-14849")),
+
+        NormalRule(["SmartPointerManagerImpl.updatePointerTargetsAfterReparse",
+                    ENSURE_PARSED],
+                   desc("Document commit while updating smart psi pointers", bug="CPP-13493")),
+
     ]
     return rules
