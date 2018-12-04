@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import sys
 import time
@@ -13,6 +14,7 @@ FRAME_SEQ_TO_TICKET = \
     freeze_rules.commit.get_rules() + \
     freeze_rules.lazyReparse.get_rules() + \
     freeze_rules.misc.get_rules() + \
+    freeze_rules.plugin.get_rules() + \
     freeze_rules.resolve.get_rules() + \
     freeze_rules.tests.get_rules()
 
@@ -143,26 +145,32 @@ def collect_files(arg):
         raise ValueError("Invalid file or folder: " + str(arg))
 
 
-def parse_args_and_process_files(args):
-    files = [f for arg in args for f in collect_files(arg)]
-    infos = [process_file(f) for f in files]
-    summary = get_summary(infos)
+def parse_args_and_process_files(given_filenames):
+    filenames = [f for arg in given_filenames for f in collect_files(arg)]
+    infos = [process_file(f) for f in filenames]
+    return get_summary(infos)
 
+
+def write_to_otuput_dir(summary):
     output_dir = os.path.join(os.path.dirname(__file__), "out")
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-
     result_file = "result-" + time.strftime("%Y%m%d-%H%M%S") + ".txt"
     with open(os.path.join(output_dir, result_file), "w") as out_file:
         out_file.writelines(summary)
-    return summary
 
 
 def main():
     if len(sys.argv) < 2:
         print_usage()
     else:
-        print(parse_args_and_process_files(sys.argv[1:]))
+        program_arguments = sys.argv[1:]
+
+        summary = parse_args_and_process_files(filter(lambda a: a != '-o', program_arguments))
+
+        print(summary)
+        if '-o' in program_arguments:
+            write_to_otuput_dir(summary)
 
 
 if __name__ == '__main__':
