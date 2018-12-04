@@ -8,7 +8,7 @@ def get_rules():
     rules = [
         NormalRule(["PsiElement2UsageTargetAdapter.isValid",
                     ENSURE_PARSED],
-                   desc("usages view", "CPP-8459")),
+                   desc("usages view", bug="CPP-8459")),
 
         NormalRule(["UsageInfo2UsageAdapter.isValid",
                     ENSURE_PARSED],
@@ -16,11 +16,11 @@ def get_rules():
 
         NormalRule(["UsageViewImpl.checkNodeValidity",
                     ENSURE_PARSED],
-                   desc("usages view", "CPP-8459")),
+                   desc("usages view", bug="CPP-8459")),
 
         NormalRule(["BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
                     ENSURE_PARSED],
-                   desc("brace matcher", "IDEA-177314")),
+                   desc("brace matcher", bug="IDEA-177314")),
 
         NormalRule(["ComponentStoreImpl.save",
                     "TextEditorState.getFoldingState",
@@ -37,15 +37,15 @@ def get_rules():
 
         NormalRule(["HighlightUsagesHandlerFactoryBase.createHighlightUsagesHandler",
                     ENSURE_PARSED],
-                   desc("create IdentifierHighlighterPass pass", "CPP-9373", fixed=181)),
+                   desc("create IdentifierHighlighterPass pass", bug="CPP-9373", fixed=181)),
 
         NormalRule(["SearchEverywhereAction", "OCSymbolBase.canNavigate",
                     ENSURE_PARSED],
-                   desc("Search everywhere -> canNavigate -> reparse")),
+                   desc("Search everywhere -> canNavigate -> reparse", bug="CPP-11711", fixed=182)),
 
         NormalRule(["FileHyperlinkInfoBase.navigate",
                     ENSURE_PARSED],
-                   desc("File hyper links: reparse", "CPP-11601", fixed=181)),
+                   desc("File hyper links: reparse", bug="CPP-11601", fixed=181)),
 
         NormalRule(["FindInPathAction.actionPerformed",
                     "FindInProjectUtil.setDirectoryName",
@@ -74,7 +74,7 @@ def get_rules():
         NormalRule(["MyAutoScrollFromSourceHandler",
                     "SelectInTargetPsiWrapper.selectIn",
                     ENSURE_PARSED],
-                   desc("Autoscroll to source -> reparse")),
+                   desc("Autoscroll to source -> reparse", bug="CPP-11591")),
 
         NormalRule(["GotoDeclarationAction.update",
                     ENSURE_PARSED],
@@ -82,7 +82,7 @@ def get_rules():
 
         NormalRule(["SelectWordHandler.doExecute",
                     ENSURE_PARSED],
-                   desc("Select word/expand selection -> reparse", "CPP-11901")),
+                   desc("Select word/expand selection -> reparse", bug="CPP-11901")),
 
         NormalRule(["CodeFoldingManagerImpl$1.mouseMoved",
                     ENSURE_PARSED],
@@ -90,15 +90,15 @@ def get_rules():
 
         NormalRule(["TextEditorPsiDataProvider.getData",
                     ENSURE_PARSED],
-                   desc("TextEditorPsiDataProvider -> reparse", "CPP-11936")),
+                   desc("TextEditorPsiDataProvider -> reparse", bug="CPP-11936")),
 
         NormalRule(["CtrlMouseHandler",
                     "getEditorForInjectedLanguageNoCommit",
                     ENSURE_PARSED],
-                   desc("CtrlMouseHandler + injected editor", "CPP-11610")),
+                   desc("CtrlMouseHandler + injected editor", bug="CPP-11610")),
 
         NormalRule(["documentation.QuickDocOnMouseOverManager",
                     ENSURE_PARSED],
-                   desc("Quick Documentation on mouse move -> reparse", "CPP-12831")),
+                   desc("Quick Documentation on mouse move -> reparse", bug="CPP-12831")),
     ]
     return rules
