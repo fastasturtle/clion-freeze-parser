@@ -3,20 +3,26 @@ from rules import NormalRule, desc
 
 def get_rules():
     rules = [
+        # Rename
+
         NormalRule(["OCRenameProcessor.prepareRenaming"],
                    desc("Rename")),
 
         NormalRule(["OCInplaceRenameHandler.doRename"],
                    desc("Executing inplace rename", bug="CPP-13833")),
 
+        NormalRule(["refactoring.introduce.inplace.AbstractInplaceIntroducer",
+                    "OCBaseExpressionInplaceIntroducer.suggestNames"],
+                   desc("Suggesting a name during inplace refactoring", bug="CPP-14932")),
+        ###
         NormalRule(["OCCreateNewDefinitionIntentionAction.getText"],
-                   desc("OCCreateNewDefinitionIntentionAction.getText")),
+                   desc("Create new Definition", bug="CPP-12939")),
 
         NormalRule(["OCCCppGenerateHandlerBase.invoke"],
                    desc("CPP generate action")),
 
         NormalRule(["OCGotoDeclarationHandler.getActionText"],
-                   desc("goto declaration action text", bug="CPP-8460", fixed=173)),
+                   desc("Go to declaration action text", bug="CPP-8460", fixed=173)),
 
         NormalRule(["OCArgumentListCallPlace.collectCallOptions"],
                    desc("parameter info", bug="CPP-9361", fixed=182)),
@@ -42,6 +48,8 @@ def get_rules():
                     "OCExtractMethodProcessor.invoke"],
                    desc("Extract method")),
 
+        # Move Action
+
         NormalRule(["OCSymbolWithQualifiedName.processSameSymbols",
                     "OCAbstractMoveDialog.setMembersChecked"],
                    desc("Move")),
@@ -59,6 +67,8 @@ def get_rules():
         NormalRule(["OCMoveHandlerDelegate.tryToMove"],
                    desc("Move after editing common header", bug="CPP-14352")),
 
+        ###
+
         NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition",
                     "OCSplitFunctionIntentionAction.invoke"],
                    desc("Split function", bug="CPP-11254", fixed=182)),
@@ -71,12 +81,17 @@ def get_rules():
                     "OCChangeSignatureUsageProcessor.findConflicts"],
                    desc("Change signature: find conflicts")),
 
+        # Change signature
+
         NormalRule(["OCChangeSignatureProcessor.preprocessUsages"],
                    desc("Change signature: preprocessUsages")),
 
         NormalRule(["LoadCMakeProjectAction.actionPerformed"],
                    desc("Load CMake project", bug="CPP-14237")),
 
+        ###
+
+        # Find Usage
         NormalRule(["OCSymbolWithQualifiedNameImpl.processAssociatedSymbols",
                     "FindUsagesAction.actionPerformed"],
                    desc("Find usages search associated targets", bug="CPP-12806")),
@@ -84,6 +99,8 @@ def get_rules():
         NormalRule(["OCSymbolWithQualifiedNameImpl.getDefinitionSymbol",
                     "FindUsagesAction.actionPerformed"],
                    desc("Find usages search definitions", bug="CPP-14785")),
+
+        ###
 
         NormalRule(["SearchAgainAction.actionPerformed"],
                    desc("Search again", bug="CPP-14288")),

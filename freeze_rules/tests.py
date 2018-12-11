@@ -15,7 +15,9 @@ def get_rules():
                    desc("Google test run configuration editor")),
 
         NormalRule(["cidr.execution.testing.CidrTestListUpdater"],
-                   desc("Initial tests scanning in big projects", bug="CPP-14242", fixed="review")),
+                   desc("Initial tests scanning in big projects", bug="CPP-14242")),
 
+        NormalRule(["cidr.execution.testing.google.CidrGoogleTestRunConfigurationData.checkData"],
+                   desc("Initial tests scanning in big projects", bug="CPP-14242")),
     ]
     return rules
