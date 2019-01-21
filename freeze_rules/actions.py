@@ -15,6 +15,7 @@ def get_rules():
                     "OCBaseExpressionInplaceIntroducer.suggestNames"],
                    desc("Suggesting a name during inplace refactoring", bug="CPP-14932")),
         ###
+
         NormalRule(["OCCreateNewDefinitionIntentionAction.getText"],
                    desc("Create new Definition", bug="CPP-12939")),
 
@@ -62,7 +63,7 @@ def get_rules():
                    desc("Move")),
 
         NormalRule(["OCMoveRefactoringHandler.showDialog"],
-                   desc("Move")),
+                   desc("Move", bug="CPP-14961")),
 
         NormalRule(["OCMoveHandlerDelegate.tryToMove"],
                    desc("Move after editing common header", bug="CPP-14352")),
@@ -120,5 +121,9 @@ def get_rules():
         NormalRule(["actions.DeleteAction.actionPerformed",
                     "projectView.impl.ProjectViewImpl"],
                    desc("Delete build directory may lead the freeze", bug="CPP-14872")),
+
+        NormalRule(["actions.PasteReferenceProvider.isPasteEnabled",
+                    "QualifiedNameProviderUtil.qualifiedNameToElement"],
+                   desc("Paste handler resolves in EDT", bug="CPP-12414")),
     ]
     return rules
