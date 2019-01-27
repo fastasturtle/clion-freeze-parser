@@ -83,10 +83,10 @@ def process_thread_dump(file_name, lines):
     :param lines: List[str] param
     :return: ThreadDumpInfo
     """
-    stack = extract_edt_call_stack(lines)
+    edt_stack = extract_edt_call_stack(lines)
     dump_info = parse_dump_file(lines)
     messages = match_stack(dump_info)
-    return ThreadDumpInfo(file_name, messages, stack)
+    return ThreadDumpInfo(file_name, messages, edt_stack)
 
 
 def process_file(file_name):

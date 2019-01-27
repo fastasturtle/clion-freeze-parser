@@ -4,7 +4,7 @@ from rules import NormalRule, desc
 def get_rules():
     rules = [
         NormalRule(["OCSymbolWithQualifiedName.getLocationString"],
-                   desc("getLocationString()", "CPP-10102", fixed="review")),
+                   desc("getLocationString()", bug="CPP-10102", fixed=181)),
 
         NormalRule(["TextEditorPsiDataProvider.getData",
                     "TargetElementUtil.findTargetElement"],

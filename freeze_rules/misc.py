@@ -5,7 +5,7 @@ def get_rules():
     rules = [
         NormalRule(["CidrFilesViewHelper$2.customizeCellRenderer",
                     "OCSearchScope.getExplicitlySpecifiedProjectSourceFiles"],
-                   desc("drawing project tree", "CPP-10691")),
+                   desc("drawing project tree", bug="CPP-10691", fixed=181)),
 
         NormalRule(["PotemkinProgress.runInSwingThread"],
                    desc("Potemkin progress", bug="not a bug")),
@@ -26,9 +26,9 @@ def get_rules():
                    desc("gutter -> goto")),
 
         NormalRule(["CidrWatchpointHandler.cleanup"],
-                   desc("WA in stop breakpoint", "CPP-11330", fixed=181)),
+                   desc("WA in stop breakpoint", bug="CPP-11330", fixed=181)),
 
         NormalRule(["Inet4AddressImpl.getLocalHostName"],
-                   desc("Slow getLocalHostName", "JRE-251", fixed=181)),
+                   desc("Slow getLocalHostName", bug="JRE-251", fixed=181)),
     ]
     return rules
