@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import shutil
 import sys
 import time
 from collections import defaultdict
@@ -160,11 +161,26 @@ def write_to_otuput_dir(summary):
         out_file.writelines(summary)
 
 
+def split_reports(filename, out_dir):
+    with open(filename) as f:
+        text = f.read()
+    parts = text.split('==========')
+    if os.path.exists(out_dir):
+        shutil.rmtree(out_dir)
+    os.makedirs(out_dir)
+    for id, dump in zip(parts[0::2], parts[1::2]):
+        with open(f'{out_dir}/{id.strip()}.txt', 'w+') as out_file:
+            out_file.write(dump.replace('com.intellij.diagnostic.Freeze', 'AWT-EventQueue-0\njava.lang.Thread.State: RUNNABLE'))
+
+
 def main():
     if len(sys.argv) < 2:
         print_usage()
     else:
         program_arguments = sys.argv[1:]
+        if program_arguments[0] == '--split':
+            split_reports(program_arguments[1], program_arguments[2])
+            return
 
         summary = parse_args_and_process_files(filter(lambda a: a != '-o', program_arguments))
 
