@@ -52,6 +52,8 @@ WRITE_LOCK_MSG = "Waiting for write lock"
 CIDR_IN_BACKGROUND_MSG = "CIDR in background, but not in EDT"
 NO_CIDR_MSG = "No CIDR frames anywhere"
 
+ENSURE_PARSED = "LazyParseableElement.getFirstChildNode"
+
 
 def is_waiting_for_write_lock(edt_thread_info):
     if edt_thread_info.thread_state != "TIMED_WAITING":

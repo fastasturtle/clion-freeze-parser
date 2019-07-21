@@ -1,7 +1,4 @@
-from rules import NormalRule, desc
-
-
-ENSURE_PARSED = "LazyParseableElement.getFirstChildNode"
+from rules import NormalRule, desc, ENSURE_PARSED
 
 
 def get_rules():
@@ -21,31 +18,6 @@ def get_rules():
         NormalRule(["BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
                     ENSURE_PARSED],
                    desc("brace matcher", bug="IDEA-177314")),
-
-        NormalRule(["ComponentStoreImpl.save",
-                    "TextEditorState.getFoldingState",
-                    ENSURE_PARSED],
-                   desc("Save folding state", "CPP-10639", fixed=173)),
-
-        NormalRule(["CodeFoldingManagerImpl.writeFoldingState",
-                    ENSURE_PARSED],
-                   desc("Save folding state", "CPP-10639", fixed=173)),
-
-        NormalRule(["CodeFoldingManagerImpl.saveFoldingState",
-                    ENSURE_PARSED],
-                   desc("Save folding state", "CPP-10639", fixed=173)),
-
-        NormalRule(["HighlightUsagesHandlerFactoryBase.createHighlightUsagesHandler",
-                    ENSURE_PARSED],
-                   desc("create IdentifierHighlighterPass pass", bug="CPP-9373", fixed=181)),
-
-        NormalRule(["SearchEverywhereAction", "OCSymbolBase.canNavigate",
-                    ENSURE_PARSED],
-                   desc("Search everywhere -> canNavigate -> reparse", bug="CPP-11711", fixed=182)),
-
-        NormalRule(["FileHyperlinkInfoBase.navigate",
-                    ENSURE_PARSED],
-                   desc("File hyper links: reparse", bug="CPP-11601", fixed=181)),
 
         NormalRule(["FindInPathAction.actionPerformed",
                     "FindInProjectUtil.setDirectoryName",

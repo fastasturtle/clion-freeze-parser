@@ -22,22 +22,6 @@ def get_rules():
         NormalRule(["OCCCppGenerateHandlerBase.invoke"],
                    desc("CPP generate action")),
 
-        NormalRule(["OCGotoDeclarationHandler.getActionText"],
-                   desc("Go to declaration action text", bug="CPP-8460", fixed=173)),
-
-        NormalRule(["OCArgumentListCallPlace.collectCallOptions"],
-                   desc("parameter info", bug="CPP-9361", fixed=182)),
-
-        NormalRule(["OCFunctionParameterInfoHandler.updateParameterInfo"],
-                   desc("parameter info", bug="CPP-9361", fixed=182)),
-
-        NormalRule(["OCSwitchToHeaderOrSourceRelatedProvider.getItems"],
-                   desc("switch to source/header", bug="CPP-7168", fixed=182)),
-
-        NormalRule(["OCImportSymbolFix.showHint",
-                    "OCStructSymbol.getKindUppercase"],
-                   desc("Import symbol fix", bug="CPP-10663", fixed=181)),
-
         NormalRule(["OCBaseGenerateTestAction.update",
                     "OCBaseGenerateTestAction.isValidForFile"],
                    desc("Generate test: is valid for", bug="CPP-14396")),
@@ -69,15 +53,6 @@ def get_rules():
                    desc("Move after editing common header", bug="CPP-14352")),
 
         ###
-
-        NormalRule(["OCCppDefinitionsUtil.getOutsidePreferredPosition",
-                    "OCSplitFunctionIntentionAction.invoke"],
-                   desc("Split function", bug="CPP-11254", fixed=182)),
-
-        NormalRule(["OCGenerateUtil.applyReplacements",
-                    "OCImportSymbolFix.fixAllSymbolsRecursively"],
-                   desc("Generate definition: import fix", fixed="review")),
-
         NormalRule(["OCChangeSignatureProcessor.runSynchronously",
                     "OCChangeSignatureUsageProcessor.findConflicts"],
                    desc("Change signature: find conflicts")),
