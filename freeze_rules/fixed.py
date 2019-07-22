@@ -72,5 +72,11 @@ def get_rules():
                     ENSURE_PARSED],
                    desc("File hyper links: reparse", bug="CPP-11601", fixed=181)),
 
+        NormalRule(["AbstractInplaceIntroducer.startInplaceIntroduceTemplate",
+                    "inplace.InplaceRefactoring.collectRefs",
+                    "ClangResolveUtils.findTargetSymbolViaClang",
+                    "ClangUtils.waitForClangFuture"],
+                   desc("clangd: collecting refs for inplace rename in EDT", fixed="192")),
+
     ]
     return rules

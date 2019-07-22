@@ -11,6 +11,7 @@ from rules import process_custom
 import freeze_rules
 
 FRAME_SEQ_TO_TICKET = \
+    freeze_rules.fixed.get_rules() + \
     freeze_rules.actions.get_rules() + \
     freeze_rules.commit.get_rules() + \
     freeze_rules.lazyReparse.get_rules() + \
