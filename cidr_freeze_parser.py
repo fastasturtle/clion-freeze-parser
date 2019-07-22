@@ -17,6 +17,8 @@ FRAME_SEQ_TO_TICKET = \
     freeze_rules.misc.get_rules() + \
     freeze_rules.plugin.get_rules() + \
     freeze_rules.resolve.get_rules() + \
+    freeze_rules.clangd.get_rules() + \
+    freeze_rules.debugger.get_rules() + \
     freeze_rules.tests.get_rules()
 
 
@@ -106,18 +108,17 @@ def get_summary(infos):
     for info in infos:
         if not info.messages:
             unknown.append(info.file_name)
-        detailed.append(
-            info.file_name + ": " + (", ".join(info.messages) if info.messages else "UNKNOWN") +
-            "\n" +
-            ("" if info.messages else ("\n" + "".join(info.lines) + "\n"))
-        )
+            detailed.append(
+                info.file_name + ": " + (", ".join(info.messages) if info.messages else "UNKNOWN") +
+                "\n" +
+                ("" if info.messages else ("\n" + "".join(info.lines) + "\n"))
+            )
         for t in info.messages:
             all_tickets[t] += 1
 
-    return "All found tickets:\n{}\nUnknown traces ({}):\n{}\n\n{}".format(
+    return "All found tickets:\n{}\nUnknown traces ({})\n{}".format(
         tickets_to_string(all_tickets),
         len(unknown),
-        "\n".join(unknown),
         "".join(detailed))
 
 

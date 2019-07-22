@@ -19,5 +19,13 @@ def get_rules():
 
         NormalRule(["cidr.execution.testing.google.CidrGoogleTestRunConfigurationData.checkData"],
                    desc("Initial tests scanning in big projects", bug="CPP-14242")),
+
+        NormalRule(["LineMarkerInfo.getLineMarkerTooltip",
+                    "CidrTestRunConfigurationProducer.setupConfigurationFromContext"],
+                   desc("Test line marker: tooltip")),
+
+        NormalRule(["SwiftPackageManagerTestCommandLineState.prepareTestExecutionEnvironment",
+                    "ApplicationImpl.runReadAction"],
+                   desc("SPM test: blocking read action")),
     ]
     return rules

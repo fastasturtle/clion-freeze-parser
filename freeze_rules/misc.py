@@ -30,5 +30,52 @@ def get_rules():
 
         NormalRule(["Inet4AddressImpl.getLocalHostName"],
                    desc("Slow getLocalHostName", bug="JRE-251", fixed=181)),
+
+        NormalRule(["VirtualFileChangeListener.",
+                    "com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache"],
+                   desc("FileSymbolTablesCache VFS listener")),
+
+        NormalRule(["build.CidrBuild",
+                    "LocalFileSystemBase.refreshAndFindFileByIoFile"],
+                   desc("CidrBuild: refresh VFS")),
+
+        NormalRule(["symtable.SerializationServiceImpl",
+                    "ApplicationImpl.runReadAction"],
+                   desc("Serialization service: read lock (to investigate)")),
+
+        NormalRule(["PsiDocumentManagerImpl.finishCommitInWriteAction",
+                    "source.tree.injected",
+                    "LazyParseableElement.ensureParsed"],
+                   desc("Finish commit: ensure parsed (caused by injection)")),
+
+        NormalRule(["GlobalInspectionContextImpl.inspectFile",
+                    "ApplicationImpl.tryRunReadAction"],
+                   desc("Global inspections: blocking?")),
+
+        NormalRule(["CidrPathConsoleFilter.processLocalPath"],
+                   desc("Slow IO in non-blocking read action")),
+
+        NormalRule(["DefaultHighlightVisitorBasedInspection.runGeneralHighlighting"],
+                   desc("Highlighting inspection: blocking?")),
+
+        NormalRule(["TemplateDataLanguagePusher.acceptsFile",
+                    "FileTypeManagerImpl.getOrDetectFromContent"],
+                   desc("TemplateDataLanguagePusher: file type detector")),
+
+        NormalRule(["SymbolTableProvider.findProvider",
+                    "FileTypeManagerImpl.getOrDetectFromContent"],
+                   desc("SymbolTableProvider: file type detector")),
+
+        NormalRule(["OCWorkspaceFileListener",
+                    "FileTypeManagerImpl.getOrDetectFromContent"],
+                   desc("TemplateDataLanguagePusher: file type detector")),
+
+        NormalRule(["OCGlobalUnusedInspection.inspectionFinished"],
+                   desc("OCGlobalUnusedInspection not cancelled?")),
+
+        NormalRule(["CMakeWorkspace.projectOpened",
+                    "CidrWorkspace.updateContentRoots"],
+                   desc("CMake project: update content roots on open")),
+
     ]
     return rules
