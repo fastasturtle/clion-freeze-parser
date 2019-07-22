@@ -67,5 +67,11 @@ def get_rules():
                     "CidrWorkspace.updateContentRoots"],
                    desc("CMake project: update content roots on open")),
 
+        NormalRule(["ScopeChooserCombo.rebuildModel"],
+                   desc("ScopeChooserCombo.rebuildModel", bug="CPP-15185")),
+
+        NormalRule(["SelectInTargetPsiWrapper.selectIn"],
+                   desc("SelectInTargetPsiWrapper.selectIn", bug="IDEA-218590", fixed=192)),
+
     ]
     return rules

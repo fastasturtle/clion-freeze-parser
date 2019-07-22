@@ -97,5 +97,9 @@ def get_rules():
                     ENSURE_PARSED],
                    desc("XDebuggerUtilImpl.createEditor: lazy reparse")),
 
+        NormalRule(["BackspaceHandler.handleBackspace",
+                    ENSURE_PARSED],
+                   desc("BackspaceHandler.handleBackspace: lazy reparse")),
+
     ]
     return rules

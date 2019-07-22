@@ -5,7 +5,7 @@ def get_rules():
     rules = [
         NormalRule(["ClangDaemonFormatProvider.findClangFormatContent",
                     "CompletableFuture.get"],
-                   desc("ClangFormat: findClangFormatContent")),
+                   desc("ClangFormat: findClangFormatContent", bug="CPP-15717")),
         NormalRule(["ClangDaemonFormatProvider.format",
                     "DocumentImpl.doGetText"],
                    desc("ClangFormat: slow Document.getText")),

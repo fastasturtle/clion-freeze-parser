@@ -165,6 +165,17 @@ def get_rules():
                     "OCHeaderGuardDetector.visitElement"],
                    desc("header guard renamer: skip non code usages")),
 
+        NormalRule(["OCParameterInplaceIntroducer.introduceForReal",
+                    "OCChangeSignatureProcessor.runSynchronously"],
+                   desc("Change signature during introduce refactoring")),
+
+        NormalRule(["OCInplaceRenamer.checkLocalScope"],
+                   desc("OCInplaceRenamer.checkLocalScope")),
+
+        NormalRule(["FindUsagesAction.actionPerformed",
+                    "TargetElementUtil.findTargetElement"],
+                   desc("Find Usages action finds target element on EDT")),
+
 
 
     ]

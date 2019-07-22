@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import shutil
 import sys
@@ -109,11 +109,11 @@ def get_summary(infos):
     for info in infos:
         if not info.messages:
             unknown.append(info.file_name)
-            detailed.append(
-                info.file_name + ": " + (", ".join(info.messages) if info.messages else "UNKNOWN") +
-                "\n" +
-                ("" if info.messages else ("\n" + "".join(info.lines) + "\n"))
-            )
+        detailed.append(
+            info.file_name + ": " + (", ".join(info.messages) if info.messages else "UNKNOWN") +
+            "\n" +
+            ("" if info.messages else ("\n" + "".join(info.lines) + "\n"))
+        )
         for t in info.messages:
             all_tickets[t] += 1
 

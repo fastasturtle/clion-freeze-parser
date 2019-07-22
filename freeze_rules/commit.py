@@ -26,5 +26,9 @@ def get_rules():
         NormalRule(["CodeInsightEditorAction.beforeActionPerformedUpdate",
                     "PsiDocumentManagerBase.doCommit"],
                    desc("CodeInsightEditorAction commit")),
+
+        NormalRule(["PasteHandler.doPaste",
+                    "PsiDocumentManagerBase.doCommit"],
+                   desc("PasteHandler: commit")),
     ]
     return rules
