@@ -33,6 +33,10 @@ def get_rules():
                     "OCExtractMethodProcessor.invoke"],
                    desc("Extract method")),
 
+        NormalRule(["EditorGutterComponentImpl.mouseReleased",
+                    "OCGotoActionSync.navigate"],
+                   desc("Editor gutter: recalculating targets on a click")),
+
         # Move Action
 
         NormalRule(["OCSymbolWithQualifiedName.processSameSymbols",
@@ -62,6 +66,12 @@ def get_rules():
         NormalRule(["OCChangeSignatureProcessor.preprocessUsages"],
                    desc("Change signature: preprocessUsages")),
 
+        NormalRule(["ChangeSignatureAction.isAvailableOnElementInEditorAndFile",
+                    "OCChangeSignatureActionHandler.findTargetMember"],
+                   desc("Change signature: isAvailable from EDT")),
+
+
+
         NormalRule(["LoadCMakeProjectAction.actionPerformed"],
                    desc("Load CMake project", bug="CPP-14237")),
 
@@ -75,6 +85,11 @@ def get_rules():
         NormalRule(["OCSymbolWithQualifiedNameImpl.getDefinitionSymbol",
                     "FindUsagesAction.actionPerformed"],
                    desc("Find usages search definitions", bug="CPP-14785")),
+
+        NormalRule(["ShowUsagesAction.actionPerformed",
+                    "ShowUsagesAction.showElementUsages",
+                    "UsageInfo.<init>"],
+                   desc("Show usages action: sync resolve")),
 
         ###
 
@@ -100,5 +115,57 @@ def get_rules():
         NormalRule(["actions.PasteReferenceProvider.isPasteEnabled",
                     "QualifiedNameProviderUtil.qualifiedNameToElement"],
                    desc("Paste handler resolves in EDT", bug="CPP-12414")),
+
+        NormalRule(["OCSwitchToHeaderOrSourceRelatedProvider.",
+                    "ApplicationImpl.runReadAction"],
+                   desc("Switch to header/source: blocking read action")),
+
+        NormalRule(["FindUsagesHandler.processElementUsages",
+                    "ApplicationImpl.runReadAction"],
+                   desc("Find usages: blocking read action")),
+
+        NormalRule(["OCCreateNewDefinitionIntentionAction.isAvailable"],
+                   desc("OCCreateNewDefinitionIntentionAction: isAvailable")),
+
+        NormalRule(["FoldingModelSupport.getLineSeparatorDescription",
+                    "ApplicationImpl.runReadAction"],
+                   desc("Diff breadcrumbs: blocking read action")),
+
+        NormalRule(["OCGotoActionAsync.navigate",
+                    "AbstractQuery.findFirst"],
+                   desc("Async goto: findFirst")),
+
+
+        NormalRule(["SafeDeleteHandler.invoke",
+                    "OCFindUsagesHandlerFactory.createFindUsagesHandler",
+                    "OCSymbolWithQualifiedNameImpl.processAssociatedSymbols"],
+                   desc("SafeDeleteHandler: assoc symbol")),
+
+        NormalRule(["GotoImplementationHandler.getSourceAndTargetElements"],
+                   desc("Goto implementation")),
+
+        NormalRule(["OCRemoveDeclarationButInitializerIntentionAction.isAvailable"],
+                   desc("OCRemoveDeclarationButInitializerIntentionAction.isAvailable")),
+
+        NormalRule(["OCFindUsagesHandler.getPrimaryElements",
+                    "ShowUsagesAction.showElementUsages"],
+                   desc("Show usages: find primary element")),
+
+        NormalRule(["OCAsyncParamInfoModelImpl$calculateFirstResult",
+                    "ApplicationImpl.runReadAction"],
+                   desc("param info: blocking calculate first result")),
+
+        NormalRule(["OCInvertIfConditionIntentionAction.invoke"],
+                   desc("OCInvertIfConditionIntentionAction invoke")),
+
+        NormalRule(["OCResolveConfigurationImpl.updateFilesCache"],
+                   desc("OCResolveConfigurationImpl.updateFilesCache")),
+
+        NormalRule(["OCHeaderGuardRenameProcessor.skipNonCodeUsage",
+                    "OCHeaderGuardDetector.visitElement"],
+                   desc("header guard renamer: skip non code usages")),
+
+
+
     ]
     return rules

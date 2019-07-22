@@ -85,5 +85,17 @@ def get_rules():
                     ENSURE_PARSED],
                    desc("Document commit while updating smart psi pointers", bug="CPP-13493")),
 
+        NormalRule(["PsiElementUsageGroupBase.isValid",
+                    ENSURE_PARSED],
+                   desc("PsiElementUsageGroupBase: lazy reparse")),
+
+        NormalRule(["DaemonTooltipActionProviderKt.getFirstAvailableAction",
+                    ENSURE_PARSED],
+                   desc("DaemonTooltipActionProvider: lazy reparse")),
+
+        NormalRule(["XDebuggerUtilImpl.createEditor",
+                    ENSURE_PARSED],
+                   desc("XDebuggerUtilImpl.createEditor: lazy reparse")),
+
     ]
     return rules
