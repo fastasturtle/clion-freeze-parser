@@ -23,7 +23,7 @@ def get_rules():
 
         NormalRule(["VirtualFileChangeListener.",
                     "com.jetbrains.cidr.lang.symbols.symtable.FileSymbolTablesCache"],
-                   desc("FileSymbolTablesCache VFS listener")),
+                   desc("FileSymbolTablesCache VFS listener", bug="CPP-16564")),
 
         NormalRule(["build.CidrBuild",
                     "LocalFileSystemBase.refreshAndFindFileByIoFile"],

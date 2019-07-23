@@ -129,7 +129,7 @@ def get_rules():
 
         NormalRule(["FoldingModelSupport.getLineSeparatorDescription",
                     "ApplicationImpl.runReadAction"],
-                   desc("Diff breadcrumbs: blocking read action")),
+                   desc("Diff breadcrumbs: blocking read action", bug="IDEA-216929")),
 
         NormalRule(["OCGotoActionAsync.navigate",
                     "AbstractQuery.findFirst"],
