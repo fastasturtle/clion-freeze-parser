@@ -1,5 +1,3 @@
-
-
 def _contains_frames(frames, thread_info):
     """
     :param frames: List[str]
@@ -21,6 +19,7 @@ class NormalRule:
     """
     Class for describing search rules.
     """
+
     def __init__(self, frame_seq, message):
         """
         :param frame_seq: List[str]
@@ -42,6 +41,32 @@ class NormalRule:
         return False
 
 
+class PooledRule(NormalRule):
+    """
+    Class for describing rules involving stacktraces in pooled threads 
+    """
+
+    def __init__(self, edt_frame_seq, pooled_frame_seqs, message):
+        """
+        :param edt_frame_seq: List[str]
+        :param pooled_frame_seqs: List[List[str]] list of excerpts of stacktraces of different pooled thread
+        :param message: str
+        """
+        NormalRule.__init__(self, edt_frame_seq, message)
+        self.pooled_frame_seqs = pooled_frame_seqs
+
+    def is_matched(self, dump_file):
+        if super(PooledRule, self).is_matched(dump_file):
+            pooled_thread_infos = dump_file.get_pooled_info()
+            if pooled_thread_infos is None:
+                return False
+            if all(
+                    any(_contains_frames(pooled_seq, pooled_thread) for pooled_thread in pooled_thread_infos)
+                    for pooled_seq in self.pooled_frame_seqs):
+                return self.message
+        return False
+
+
 def desc(text, bug="CPP-?????", fixed=None):
     fixed_text = ("fixed in " + str(fixed) + " " if fixed else "")
     return fixed_text + text + " (" + bug + ")"
@@ -53,6 +78,7 @@ CIDR_IN_BACKGROUND_MSG = "CIDR in background, but not in EDT"
 NO_CIDR_MSG = "No CIDR frames anywhere"
 
 ENSURE_PARSED = "LazyParseableElement.getFirstChildNode"
+WRITE_LOCK = ["ReadMostlyRWLock.writeLock", "ApplicationImpl.runWriteAction"]
 
 
 def is_waiting_for_write_lock(edt_thread_info):

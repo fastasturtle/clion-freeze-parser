@@ -1,4 +1,4 @@
-from rules import NormalRule, desc, ENSURE_PARSED
+from rules import NormalRule, desc, ENSURE_PARSED, PooledRule, WRITE_LOCK
 
 
 def get_rules():
@@ -77,6 +77,11 @@ def get_rules():
                     "ClangResolveUtils.findTargetSymbolViaClang",
                     "ClangUtils.waitForClangFuture"],
                    desc("clangd: collecting refs for inplace rename in EDT", fixed="192")),
+
+        PooledRule(WRITE_LOCK,
+                   [["queueUpdateBulk",
+                     "ReadAction.run"]],
+                   desc("Usage View: non-cancellable read action on bulk update", bug="CPP-12443", fixed="182"))
 
     ]
     return rules
