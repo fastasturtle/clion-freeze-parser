@@ -86,5 +86,11 @@ def get_rules():
         NormalRule(["OCParser.syncProduce",
                     "OCParser.parse"],
                    desc("sync parse in EDT", bug="CPP-17093", fixed="182")),
+
+        PooledRule(["Node.isFlagSet",
+                    "Node.isValid"],
+                   [["UsageNode.isDataValid",
+                     "Node.update"]],
+                   desc("Usage View: synchronized update in background", bug="CPP-17095", fixed="182"))
     ]
     return rules
