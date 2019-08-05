@@ -81,7 +81,10 @@ def get_rules():
         PooledRule(WRITE_LOCK,
                    [["queueUpdateBulk",
                      "ReadAction.run"]],
-                   desc("Usage View: non-cancellable read action on bulk update", bug="CPP-12443", fixed="182"))
+                   desc("Usage View: non-cancellable read action on bulk update", bug="CPP-12443", fixed="182")),
 
+        NormalRule(["OCParser.syncProduce",
+                    "OCParser.parse"],
+                   desc("sync parse in EDT", bug="CPP-17093", fixed="182")),
     ]
     return rules

@@ -1,0 +1,5 @@
+All found tickets:
+   fixed in 182 sync parse in EDT (CPP-17093): 1
+   PsiElementUsageGroupBase: lazy reparse (CPP-?????): 1
+Unknown traces (0):
+testdata/sync_produce.txt: fixed in 182 sync parse in EDT (CPP-17093), PsiElementUsageGroupBase: lazy reparse (CPP-?????)
