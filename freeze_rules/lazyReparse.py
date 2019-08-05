@@ -17,6 +17,10 @@ def get_rules():
                     ENSURE_PARSED],
                    desc("Usage view: get file status", "CPP-17097")),
 
+        NormalRule(["UsagePreviewPanel.cannotPreviewMessage",
+                    ENSURE_PARSED],
+                   desc("Usage view: cannot preview message", "CPP-17098")),
+
         NormalRule(["BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
                     ENSURE_PARSED],
                    desc("brace matcher", bug="IDEA-177314")),
@@ -102,10 +106,6 @@ def get_rules():
         NormalRule(["BackspaceHandler.handleBackspace",
                     ENSURE_PARSED],
                    desc("BackspaceHandler.handleBackspace: lazy reparse")),
-
-        NormalRule(["UsagePreviewPanel.cannotPreviewMessage",
-                    ENSURE_PARSED],
-                   desc("Usages View: UsagePreviewPanel.cannotPreviewMessage"))
 
     ]
     return rules
