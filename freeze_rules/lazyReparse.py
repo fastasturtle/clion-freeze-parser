@@ -12,6 +12,11 @@ def get_rules():
                     ENSURE_PARSED],
                    desc("usages view", "CPP-8459")),
 
+        NormalRule(["UsageViewTreeCellRenderer.patchAttrs",
+                    "PsiElementUsageGroupBase.getFileStatus",
+                    ENSURE_PARSED],
+                   desc("Usage view: get file status", "CPP-17097")),
+
         NormalRule(["BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
                     ENSURE_PARSED],
                    desc("brace matcher", bug="IDEA-177314")),
@@ -97,6 +102,10 @@ def get_rules():
         NormalRule(["BackspaceHandler.handleBackspace",
                     ENSURE_PARSED],
                    desc("BackspaceHandler.handleBackspace: lazy reparse")),
+
+        NormalRule(["UsagePreviewPanel.cannotPreviewMessage",
+                    ENSURE_PARSED],
+                   desc("Usages View: UsagePreviewPanel.cannotPreviewMessage"))
 
     ]
     return rules
