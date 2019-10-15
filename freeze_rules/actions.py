@@ -176,7 +176,8 @@ def get_rules():
                     "TargetElementUtil.findTargetElement"],
                    desc("Find Usages action finds target element on EDT")),
 
-
+        NormalRule(["intentions.OCConvertToPropertyIntentionAction.isAvailable"],
+                   desc("OCConvertToPropertyIntentionAction.isAvailable", bug="CPP-17687")),
 
     ]
     return rules
