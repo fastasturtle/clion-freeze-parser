@@ -1,0 +1,4 @@
+All found tickets:
+   fixed in 182 Usage View: non-cancellable read action on bulk update (CPP-12443): 1
+Unknown traces (0):
+testdata/usage_view_bulk_update.txt: fixed in 182 Usage View: non-cancellable read action on bulk update (CPP-12443)

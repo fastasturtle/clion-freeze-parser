@@ -176,7 +176,10 @@ def get_rules():
                     "TargetElementUtil.findTargetElement"],
                    desc("Find Usages action finds target element on EDT")),
 
-
+        NormalRule(["GotoDeclarationAction.suggestCandidates",
+                    "TargetElementUtil.getTargetCandidates",
+                    "resolve"],
+                   desc("Go to declaration suggest candidates", bug="CPP-17071")),
 
     ]
     return rules

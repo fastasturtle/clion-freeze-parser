@@ -1,6 +1,4 @@
 All found tickets:
-   fixed in 173 goto declaration action text (CPP-8460): 1
+   fixed in 173 Go to declaration action text (CPP-8460): 1
 Unknown traces (0):
-
-
-testdata/goto_action_text.txt: fixed in 173 goto declaration action text (CPP-8460)
+testdata/goto_action_text.txt: fixed in 173 Go to declaration action text (CPP-8460)

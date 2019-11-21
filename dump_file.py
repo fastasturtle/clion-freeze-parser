@@ -26,6 +26,12 @@ class DumpFileInfo:
         """
         return next((i for i in self.thread_infos if i.is_edt), None)
 
+    def get_pooled_info(self):
+        """
+        :return: List[ThreadInfo]
+        """
+        return filter(lambda i: not i.is_edt, self.thread_infos)
+
 
 def split_into_threads(lines):
     """

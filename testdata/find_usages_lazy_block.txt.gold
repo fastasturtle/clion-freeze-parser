@@ -1,6 +1,4 @@
 All found tickets:
-   usages view (CPP-8459): 1
+   Usage View: isValid in EDT causes freeze (CPP-17096): 1
 Unknown traces (0):
-
-
-testdata/find_usages_lazy_block.txt: usages view (CPP-8459)
+testdata/find_usages_lazy_block.txt: Usage View: isValid in EDT causes freeze (CPP-17096)

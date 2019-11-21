@@ -1,6 +1,4 @@
 All found tickets:
-   parameter info (CPP-9361): 1
+   fixed in 182 parameter info (CPP-9361): 1
 Unknown traces (0):
-
-
-testdata/function_parameter_info.txt: parameter info (CPP-9361)
+testdata/function_parameter_info.txt: fixed in 182 parameter info (CPP-9361)

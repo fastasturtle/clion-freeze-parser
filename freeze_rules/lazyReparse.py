@@ -4,16 +4,22 @@ from rules import NormalRule, desc, ENSURE_PARSED
 def get_rules():
     rules = [
         NormalRule(["PsiElement2UsageTargetAdapter.isValid",
+                    "Node.update",
                     ENSURE_PARSED],
-                   desc("usages view", bug="CPP-8459")),
+                   desc("Usage View: isValid in EDT causes freeze", bug="CPP-17096")),
 
         NormalRule(["UsageInfo2UsageAdapter.isValid",
                     ENSURE_PARSED],
                    desc("usages view", "CPP-8459")),
 
-        NormalRule(["UsageViewImpl.checkNodeValidity",
+        NormalRule(["UsageViewTreeCellRenderer.patchAttrs",
+                    "PsiElementUsageGroupBase.getFileStatus",
                     ENSURE_PARSED],
-                   desc("usages view", bug="CPP-8459")),
+                   desc("Usage view: get file status", "CPP-17097")),
+
+        NormalRule(["UsagePreviewPanel.cannotPreviewMessage",
+                    ENSURE_PARSED],
+                   desc("Usage view: cannot preview message", "CPP-17098")),
 
         NormalRule(["BraceHighlightingHandler.lookForInjectedAndMatchBracesInOtherThread",
                     ENSURE_PARSED],
