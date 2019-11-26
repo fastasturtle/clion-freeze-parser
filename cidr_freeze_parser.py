@@ -7,20 +7,7 @@ from collections import defaultdict
 
 from dump_file import parse_dump_file
 from rules import process_custom
-
-import freeze_rules
-
-FRAME_SEQ_TO_TICKET = \
-    freeze_rules.fixed.get_rules() + \
-    freeze_rules.actions.get_rules() + \
-    freeze_rules.commit.get_rules() + \
-    freeze_rules.lazyReparse.get_rules() + \
-    freeze_rules.misc.get_rules() + \
-    freeze_rules.plugin.get_rules() + \
-    freeze_rules.resolve.get_rules() + \
-    freeze_rules.clangd.get_rules() + \
-    freeze_rules.debugger.get_rules() + \
-    freeze_rules.tests.get_rules()
+from freeze_rules import get_rules
 
 
 def print_usage():
@@ -59,7 +46,7 @@ def match_stack(stack):
     """
     if stack is not None:
         messages = set()
-        for rule in FRAME_SEQ_TO_TICKET:
+        for rule in get_rules():
             message = rule.is_matched(stack)
             if message:
                 messages.add(message)
